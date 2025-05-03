@@ -1,0 +1,18 @@
+  "M${this.mainShapeContent.availWidth*0},${this.mainShapeContent.availHeight*0} 
+              L ${this.mainShapeContent.availWidth*0.34},${this.mainShapeContent.availHeight*0}
+              L ${this.mainShapeContent.availWidth*0.37},${this.mainShapeContent.availHeight*0.05}
+              L ${this.mainShapeContent.availWidth*0.63},${this.mainShapeContent.availHeight*0.05}
+              L ${this.mainShapeContent.availWidth*0.66},${this.mainShapeContent.availHeight*0}
+              L ${this.mainShapeContent.availWidth*1},${this.mainShapeContent.availHeight*0}
+
+              L ${this.mainShapeContent.availWidth*1},${this.mainShapeContent.availHeight*0.39}
+              L ${this.mainShapeContent.availWidth*0.76},${this.mainShapeContent.availHeight*0.39}
+              L ${this.mainShapeContent.availWidth*0.76},${this.mainShapeContent.availHeight*0.614}
+              L ${this.mainShapeContent.availWidth*1},${this.mainShapeContent.availHeight*0.614}
+              L ${this.mainShapeContent.availWidth*1},${this.mainShapeContent.availHeight*1}
+
+              L ${this.mainShapeContent.availWidth*0},${this.mainShapeContent.availHeight*1}
+              L ${this.mainShapeContent.availWidth*0},${this.mainShapeContent.availHeight*0.68} 
+              L ${this.mainShapeContent.availWidth*0.05},${this.mainShapeContent.availHeight*0.62}
+              L ${this.mainShapeContent.availWidth*0.05},${this.mainShapeContent.availHeight*0.39}
+              L ${this.mainShapeContent.availWidth*0},${this.mainShapeContent.availHeight*0.332}

@@ -6,56 +6,45 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface MyCardskillComponent {
+    }
+    interface MyHomepage {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLMyCardskillComponentElement extends Components.MyCardskillComponent, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLMyCardskillComponentElement: {
+        prototype: HTMLMyCardskillComponentElement;
+        new (): HTMLMyCardskillComponentElement;
+    };
+    interface HTMLMyHomepageElement extends Components.MyHomepage, HTMLStencilElement {
+    }
+    var HTMLMyHomepageElement: {
+        prototype: HTMLMyHomepageElement;
+        new (): HTMLMyHomepageElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "my-cardskill-component": HTMLMyCardskillComponentElement;
+        "my-homepage": HTMLMyHomepageElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface MyCardskillComponent {
+    }
+    interface MyHomepage {
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "my-cardskill-component": MyCardskillComponent;
+        "my-homepage": MyHomepage;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "my-cardskill-component": LocalJSX.MyCardskillComponent & JSXBase.HTMLAttributes<HTMLMyCardskillComponentElement>;
+            "my-homepage": LocalJSX.MyHomepage & JSXBase.HTMLAttributes<HTMLMyHomepageElement>;
         }
     }
 }
