@@ -8,6 +8,13 @@ export const config: Config = {
       esmLoaderPath: '../loader',
     },
     {
+      type: 'www',
+      serviceWorker: null, // se não quiser usar PWA
+      copy: [
+        { src: 'static' } // garante que a pasta será copiada
+      ]
+    },
+    {
       type: 'dist-custom-elements',
       customElementsExportBehavior: 'auto-define-custom-elements',
       externalRuntime: false,
