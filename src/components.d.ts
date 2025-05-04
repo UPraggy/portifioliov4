@@ -6,12 +6,20 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface MyCanvasParticleComponent {
+    }
     interface MyCardskillComponent {
     }
     interface MyHomepage {
     }
 }
 declare global {
+    interface HTMLMyCanvasParticleComponentElement extends Components.MyCanvasParticleComponent, HTMLStencilElement {
+    }
+    var HTMLMyCanvasParticleComponentElement: {
+        prototype: HTMLMyCanvasParticleComponentElement;
+        new (): HTMLMyCanvasParticleComponentElement;
+    };
     interface HTMLMyCardskillComponentElement extends Components.MyCardskillComponent, HTMLStencilElement {
     }
     var HTMLMyCardskillComponentElement: {
@@ -25,16 +33,20 @@ declare global {
         new (): HTMLMyHomepageElement;
     };
     interface HTMLElementTagNameMap {
+        "my-canvas-particle-component": HTMLMyCanvasParticleComponentElement;
         "my-cardskill-component": HTMLMyCardskillComponentElement;
         "my-homepage": HTMLMyHomepageElement;
     }
 }
 declare namespace LocalJSX {
+    interface MyCanvasParticleComponent {
+    }
     interface MyCardskillComponent {
     }
     interface MyHomepage {
     }
     interface IntrinsicElements {
+        "my-canvas-particle-component": MyCanvasParticleComponent;
         "my-cardskill-component": MyCardskillComponent;
         "my-homepage": MyHomepage;
     }
@@ -43,6 +55,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "my-canvas-particle-component": LocalJSX.MyCanvasParticleComponent & JSXBase.HTMLAttributes<HTMLMyCanvasParticleComponentElement>;
             "my-cardskill-component": LocalJSX.MyCardskillComponent & JSXBase.HTMLAttributes<HTMLMyCardskillComponentElement>;
             "my-homepage": LocalJSX.MyHomepage & JSXBase.HTMLAttributes<HTMLMyHomepageElement>;
         }

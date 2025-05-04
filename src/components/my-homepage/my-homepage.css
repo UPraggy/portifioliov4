@@ -16,13 +16,31 @@
 
 :host .mainShapeContent{
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-width: 98%;
   min-height: 100vh;
   margin-top: 1vh;
   background-color: var(--blueDark2-home-color);
-  background: radial-gradient(circle, var(--blueDark1-home-color) 0%, var(--blueDark2-home-color) 100%);
+  background: radial-gradient(circle, var(--blueDark2-home-color) 0%, var(--blueDark1-home-color) 100%);
   border-radius: 25px 25px 0 0 ;
 }
+
+
+
+
+
+/* CANVA */
+.mainShapeContent .canvaMain{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  z-index: 5;
+  border-radius: 25px;
+}
+
 
 
 
@@ -41,6 +59,7 @@
   height: 50px;
   background-color: var(--whiteBone-home-color);
   clip-path: path(var(--topPath));
+  z-index: 10;
 }
 
 
@@ -54,6 +73,7 @@
   padding: 0;
   margin: 0;
   user-select: none;
+  z-index: 10;
 }
 
 
@@ -67,22 +87,23 @@
 
 :host .leftPath{
   position: absolute;
-  top: calc(33%);
+  top: calc(35%);
   left: 0;
   width: 60px;
-  height: 35vh;
+  height: 30vh;
   background-color: var(--whiteBone-home-color);
   clip-path: path(var(--leftPath));
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  z-index: 10;
 }
 
 
 :host .leftPath .socials{
   width: 90%;
-  height: 70%;
+  height: fit-content;
 }
 
 :host .leftPath .socials .emailCircle,
@@ -147,12 +168,13 @@
   width: 23%;
   height: 17vh;
   background-color: var(--whiteBone-home-color);
-  clip-path: path(var(--leftPath));
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 15px 0 0 15px;
+  overflow: hidden;
+  z-index: 10;
 }
 
 :host .bordText{
@@ -162,4 +184,135 @@
   font-size: 1.5em;
   color: var(--bluegray-color);
   user-select: none;
+}
+
+
+
+
+
+
+
+
+/* Main Content Desc */
+
+
+.mainContentDescrpt{
+  position: relative;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  justify-content: center;
+  width: 100%;
+  height: calc(90vh - 50px);
+  z-index: 10;
+}
+
+
+.mainContentDescrpt .left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 90%;
+  height: 100%;
+  margin-left: 10%;
+}
+
+.mainContentDescrpt .left .textProfission{
+  font-family: "Inter", sans-serif;
+  color: var(--whiteBone-home-color);
+  font-size: 2.5em;
+}
+
+
+.mainContentDescrpt .left .curriculumBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 50px;
+  background-color: #000000;
+  border: 2px solid var(--whiteBone-home-color);
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.mainContentDescrpt .left .curriculumBtn .text{
+  width: 75%;
+  margin-left: 15%;
+  color: var(--whiteBone-home-color);
+  font-family: 'Futura Hv BT', sans-serif;
+  font-weight: 800;
+  font-size: 1.1em;
+  z-index: 2;
+}
+
+.mainContentDescrpt .left .curriculumBtn .arrow{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 100%;
+  background-color: var(--whiteBone-home-color);
+  z-index: 5;
+  padding-left: 5%;
+}
+
+
+.mainContentDescrpt .left .curriculumBtn .arrow .lineArrow{
+  position: absolute;
+  right: 20px;
+  width: 40px;
+  height: 4px;
+  background-color: #000000;
+}
+
+
+.mainContentDescrpt .left .curriculumBtn .arrow .pointArrow{
+  position: absolute;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000000;
+  border-width: 4px 4px 0 0;
+  transform: rotate(45deg);
+}
+
+
+.mainContentDescrpt .center{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.mainContentDescrpt .center .perfilPhoto{
+  width: 80%;
+  height: 80%;
+  background: url('../../static/imgs/perfilPhoto.png') no-repeat center/contain;
+}
+
+.mainContentDescrpt .pathCubes{
+  position: absolute;
+}
+
+.mainContentDescrpt .skills{
+  width: 80px;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(0, 0); /* essencial */
+  /* transform: translateX(-462%) translateY(-308%); */
+}
+
+.mainContentDescrpt .skills.figmaSkill{
+  background: url('../../static/imgs/figmaIcon.png') no-repeat center/contain;
+}
+
+.mainContentDescrpt .skills.linuxSkill{
+  background: url('../../static/imgs/linuxIcon.png') no-repeat center/contain;
 }

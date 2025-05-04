@@ -1,5 +1,6 @@
 import { Component, Element, h, Host } from '@stencil/core';
-import {createPathDiv} from '../../utils/utils'
+import {returnSizeClientDiv, splitTextContentSpan} from '../../utils/utils'
+import { animate, stagger  } from 'animejs';
 
 @Component({
   tag: 'my-homepage',
@@ -16,23 +17,92 @@ export class MyHomePage{
 
   private topPathRef: HTMLDivElement;
   private leftPathRef: HTMLDivElement;
-  private rightPathRef: HTMLDivElement;
-  
 
   componentDidLoad() {
-    createPathDiv({ref: this.topPathRef, propertyName: '--topPath', 
-      path: (width, height) => {return `M 0,0 L ${width},0 L ${width * 0.8},${height} L ${width * 0.2},${height} L 0,0`}
-    })
+    console.log('render')
+    splitTextContentSpan(this.el, '.mainShapeContent .textProfission')
 
-    createPathDiv({ref: this.leftPathRef, propertyName: '--leftPath', 
-      path: (width, height) => {return `M 0,0 L ${width},${height*0.2} L ${width},${height * 0.8} L 0,${height} L 0,0`}
-    })
+    let leftPathSize = returnSizeClientDiv({ref: this.leftPathRef})
 
-    createPathDiv({ref: this.rightPathRef, propertyName: '--rightPath', 
-      path: (width, height) => {return `M 0,0 L ${width},0 L ${width},${height} L 0,${height} L 0,0`}
-    })
+    animate(
+      this.el.shadowRoot.querySelector('.mainShapeContent .leftPath'),
+      {
+        '--leftPath': [`"M 0,0 L ${leftPathSize.width},0 L ${leftPathSize.width},${leftPathSize.height} L 0,${leftPathSize.height} L 0,0"`,
+          `"M 0,0 L ${leftPathSize.width},${leftPathSize.height*0.1} L ${leftPathSize.width},${leftPathSize.height * 0.9} L 0,${leftPathSize.height} L 0,0"`,
+        ],
+        easing: 'easeInOutQuad',
+        duration: 500,
+      }
+    );
+
+    let topPathSize = returnSizeClientDiv({ref: this.topPathRef})
+
+    animate(
+      this.el.shadowRoot.querySelector('.mainShapeContent .topPath'),
+      {
+        '--topPath': [`"M 0,0 L ${topPathSize.width},0 L ${topPathSize.width},${topPathSize.height} L 0,${topPathSize.height} L 0,0"`,
+          `"M 0,0 L ${topPathSize.width},0 L ${topPathSize.width * 0.8},${topPathSize.height} L ${topPathSize.width * 0.2},${topPathSize.height} L 0,0"`,
+        ],
+        easing: 'easeInOutQuad',
+        duration: 900,
+      }
+    );
+
+    animate(
+      this.el.shadowRoot.querySelectorAll('.mainShapeContent .textProfission span'),
+      {
+        display: 'inline-block',
+        translateY: ['10%', '0'],
+        opacity: [0,1],
+        easing: 'easeInOut',
+        duration: 30,
+        delay: stagger(60)
+      }
+    );
+
 
   }
+
+  hoverCurriculumBtn(typeMouse: string){
+      console.log("FUNCTION CALL" + typeMouse)
+      if (typeMouse == 'Enter') {
+        animate(
+          this.el.shadowRoot.querySelector('.curriculumBtn .arrow'),
+          {
+            translateX: ['-300%', '0%'],
+            easing: 'easeInOutQuad',
+            duration: 500,
+          }
+        );
+    }
+  }
+
+  pathPerfilPhotoOrbit({width, height}: {width: number, height: number}): string{
+    const widthround = (percentage) => (width*percentage).toFixed(2)
+    const heightround = (percentage) => (height*percentage).toFixed(2)
+
+    return `M 
+    ${widthround(0.1)},${heightround(0.3)} 
+    C ${widthround(0.1)} ${heightround(0.3)} 
+      ${widthround(0.1)},${heightround(0.5)}
+     ${widthround(0.6)},${heightround(0.4)}
+    
+    
+    C ${widthround(1)} ${heightround(0.4)}
+      ${widthround(1)},${heightround(0.5)}
+      ${widthround(0.2)},${heightround(0.63)}
+
+    C ${widthround(0)} ${heightround(0.64)}
+      ${widthround(0.1)} ${heightround(0.7)}
+     ${widthround(0.9)},${heightround(0.8)}
+
+    C ${widthround(1.2)},${heightround(0.8)}
+    ${widthround(0.5)} ${heightround(0)}
+    ${widthround(0.1)},${heightround(0.3)} 
+    Z`
+  }
+
+  
 
   render() {
     return <Host>
@@ -40,6 +110,9 @@ export class MyHomePage{
 
         <div class="mainShapeContent" >
 
+        <my-canvas-particle-component class="canvaMain"/>
+
+          {/* SHAPES */}
           <div class="topPath" ref={el => this.topPathRef = el as HTMLDivElement}>
               <p class="namePortfolio">RAFAEL MOREIRA</p>
             </div>
@@ -54,8 +127,34 @@ export class MyHomePage{
               </div>
             </div>
 
-            <div class="rightPath" ref={el => this.rightPathRef = el as HTMLDivElement}>
+            <div class="rightPath">
                 <div class="bordText">Não é só código ou design. É sobre entender, adaptar e conectar.</div>
+            </div>
+
+
+
+            {/* Main Content */}
+
+            <div class="mainContentDescrpt">
+                <div class="left">
+                  <div class="textProfission">Full Stack Developer & Designer</div>
+
+                  <div class="curriculumBtn" onClick={()=>window.location.href="/static/docs/RafaelMoreira_Curriculo_25042025.pdf"}
+                    onMouseEnter={()=>this.hoverCurriculumBtn('Enter')}>
+                    <div class="text">MY CURRICULUM</div>
+                    <div class="arrow">
+                      <div class="lineArrow"></div>
+                      <div class="pointArrow"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="center">
+                  <div class="perfilPhoto"></div>
+                  {/* <div class="figmaSkill skills"></div>
+                  <div class="linuxSkill skills"></div>
+                  <div class="figmaSkill skills"></div>
+                  <div class="figmaSkill skills"></div> */}
+                </div>
             </div>
         </div>
       </div>
