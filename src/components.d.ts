@@ -12,6 +12,8 @@ export namespace Components {
     }
     interface MyHomepage {
     }
+    interface MyProjectsComponent {
+    }
 }
 declare global {
     interface HTMLMyCanvasParticleComponentElement extends Components.MyCanvasParticleComponent, HTMLStencilElement {
@@ -32,10 +34,17 @@ declare global {
         prototype: HTMLMyHomepageElement;
         new (): HTMLMyHomepageElement;
     };
+    interface HTMLMyProjectsComponentElement extends Components.MyProjectsComponent, HTMLStencilElement {
+    }
+    var HTMLMyProjectsComponentElement: {
+        prototype: HTMLMyProjectsComponentElement;
+        new (): HTMLMyProjectsComponentElement;
+    };
     interface HTMLElementTagNameMap {
         "my-canvas-particle-component": HTMLMyCanvasParticleComponentElement;
         "my-cardskill-component": HTMLMyCardskillComponentElement;
         "my-homepage": HTMLMyHomepageElement;
+        "my-projects-component": HTMLMyProjectsComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -45,10 +54,13 @@ declare namespace LocalJSX {
     }
     interface MyHomepage {
     }
+    interface MyProjectsComponent {
+    }
     interface IntrinsicElements {
         "my-canvas-particle-component": MyCanvasParticleComponent;
         "my-cardskill-component": MyCardskillComponent;
         "my-homepage": MyHomepage;
+        "my-projects-component": MyProjectsComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -58,6 +70,7 @@ declare module "@stencil/core" {
             "my-canvas-particle-component": LocalJSX.MyCanvasParticleComponent & JSXBase.HTMLAttributes<HTMLMyCanvasParticleComponentElement>;
             "my-cardskill-component": LocalJSX.MyCardskillComponent & JSXBase.HTMLAttributes<HTMLMyCardskillComponentElement>;
             "my-homepage": LocalJSX.MyHomepage & JSXBase.HTMLAttributes<HTMLMyHomepageElement>;
+            "my-projects-component": LocalJSX.MyProjectsComponent & JSXBase.HTMLAttributes<HTMLMyProjectsComponentElement>;
         }
     }
 }

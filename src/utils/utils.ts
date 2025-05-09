@@ -77,3 +77,52 @@ export function Cirle({x, y, dx, dy, radius, color, canvaContext, canvaElement})
     }
 }
 
+interface circularPathInterface{
+    canvaContext: CanvasRenderingContext2D,
+    distanceFromCenter: {
+        x: number,
+        y: number,
+    },
+    x: number,
+    y: number,
+    radius: number,
+    color: string,
+    velocity: number,
+    customFunction?: Function
+}
+
+export function circularPath({canvaContext, distanceFromCenter, x, y, radius, color, velocity, customFunction}: circularPathInterface){
+    this.x = x,
+    this.y = y,
+    this.radius = radius,
+    this.color = color,
+    this.velocity = velocity
+    this.radians = Math.random() * Math.PI * 2,
+    this.distanceFromCenter = distanceFromCenter
+
+    this.draw = () => {
+        canvaContext.beginPath()
+        canvaContext.arc(this.x, this.y, this.radius, 0, Math.PI*2, false)
+        canvaContext.fillStyle = this.color;
+        canvaContext.fill()
+        canvaContext.closePath()
+    }
+
+    this.update = (mousePos) =>{
+        if(customFunction){
+            customFunction(this)
+        }else{
+            // console.log((mousePos ? mousePos.x : x))
+            this.radians += this.velocity 
+            this.x = (mousePos ? mousePos.x : x) + Math.cos(this.radians) * this.distanceFromCenter.x
+            this.y = (mousePos ? mousePos.y : y) + Math.sin(this.radians) * this.distanceFromCenter.y //* 0.8
+            this.draw()
+        }
+
+    }
+}
+
+
+export function randomIntFromRange(min: number, max: number){
+    return Math.floor((Math.random() * (max - min + 1)) + min)
+}
