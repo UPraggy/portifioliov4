@@ -1,10 +1,13 @@
 :host{
-    /* --blueDark1-home-color: #0B1215;
-    --blueDark2-home-color: #1A2533; */
+    --blueDark3-home-color: #0B1215;
+    /* --blueDark2-home-color: #1A2533;  */
     --blueDark1-home-color: #091920;
     --blueDark2-home-color: #0f2543;
     --whiteBone-home-color: #FAF9F6;
     --blueFont-color: #2F3651;
     --bluegray-color: #3C3D50;
     --blueLinkedIn-color: #3357CC;
+    --purpleBorder-color: #A259FF;
+    --purple-gradientDark1-color: #20162D;
+    --purple-gradientDark2-color: #323236;
 }

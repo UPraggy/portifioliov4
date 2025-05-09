@@ -1,4 +1,4 @@
-import { Component, Element, Host, h } from '@stencil/core';
+import { Component, Element, Host, Listen, State, h } from '@stencil/core';
 import { Cirle } from '../../utils/utils';
 
 @Component({
@@ -11,16 +11,21 @@ import { Cirle } from '../../utils/utils';
 export class MyCanvasParticleComponent{
 
   @Element() el: HTMLElement;
+  @State() statusAnimation:boolean = true;
 
 
 
   componentDidLoad(){
+    this.allCircleAnimation()
+  }
+
+  allCircleAnimation(){
     const canvaElement = this.el.shadowRoot.querySelector('.canvaMainElement') as HTMLCanvasElement;
 
-    const canvaDivMain = this.el.shadowRoot.querySelector('.canvaSubMain') as HTMLCanvasElement;
+    const canvaDivMain = this.el.shadowRoot.querySelector('.canvaSubMain') as HTMLDivElement;
 
     if(canvaDivMain){
-      console.log(canvaDivMain)
+      // console.log(canvaDivMain)
       canvaElement.width = canvaDivMain.clientWidth;
       canvaElement.height = canvaDivMain.clientHeight;
   
@@ -40,8 +45,27 @@ export class MyCanvasParticleComponent{
     }
   }
 
+  @Listen('scroll', { target: 'window' })
+  getScroolPosition(){
+
+    const canvaElement = this.el.shadowRoot.querySelector('.canvaMainElement') as HTMLCanvasElement;
+
+    if (!canvaElement) return;
+
+    const rect = canvaElement.getBoundingClientRect();
+    const scrollY = window.scrollY;
+    const canvaBottom = rect.top + scrollY + rect.height;
+
+    if (scrollY > canvaBottom) {
+      this.statusAnimation = false;
+    }else if(this.statusAnimation == false){
+      this.statusAnimation = true;
+      this.allCircleAnimation()
+    }
+  }
+
   animateCircles(canvaContext, canvaSize, circlesArray){
-    console.log("Animates")
+    if(!this.statusAnimation) return;
     requestAnimationFrame(() => this.animateCircles(canvaContext, canvaSize, circlesArray));
     canvaContext.clearRect(0,0,canvaSize.clientWidth ,canvaSize.clientHeight);
 

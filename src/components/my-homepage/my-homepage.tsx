@@ -103,17 +103,20 @@ export class MyHomePage{
   }
 
   
-
+  
   render() {
     return <Host>
       <div class="homePageContent">
 
         <div class="mainShapeContent" >
 
+      <my-cardskill-component class="habilidadeComponent" />
+          <div class="InitialView">
+
+
         <my-canvas-particle-component class="canvaMain"/>
 
-          {/* SHAPES */}
-          <div class="topPath" ref={el => this.topPathRef = el as HTMLDivElement}>
+           <div class="topPath" ref={el => this.topPathRef = el as HTMLDivElement}>
               <p class="namePortfolio">RAFAEL MOREIRA</p>
             </div>
 
@@ -129,11 +132,7 @@ export class MyHomePage{
 
             <div class="rightPath">
                 <div class="bordText">Não é só código ou design. É sobre entender, adaptar e conectar.</div>
-            </div>
-
-
-
-            {/* Main Content */}
+            </div> 
 
             <div class="mainContentDescrpt">
                 <div class="left">
@@ -150,12 +149,14 @@ export class MyHomePage{
                 </div>
                 <div class="center">
                   <div class="perfilPhoto"></div>
-                  {/* <div class="figmaSkill skills"></div>
-                  <div class="linuxSkill skills"></div>
-                  <div class="figmaSkill skills"></div>
-                  <div class="figmaSkill skills"></div> */}
                 </div>
-            </div>
+            </div> 
+         </div> 
+
+
+          <my-projects-component class="projectComponent"/> 
+
+
         </div>
       </div>
     </Host>

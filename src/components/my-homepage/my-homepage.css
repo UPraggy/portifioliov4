@@ -17,17 +17,27 @@
 :host .mainShapeContent{
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-width: 98%;
   min-height: 100vh;
   margin-top: 1vh;
-  background-color: var(--blueDark2-home-color);
-  background: radial-gradient(circle, var(--blueDark2-home-color) 0%, var(--blueDark1-home-color) 100%);
+  background-color: var(--blueDark3-home-color);
   border-radius: 25px 25px 0 0 ;
 }
 
 
+
+/* InitialView */
+.InitialView{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 
@@ -295,24 +305,17 @@
   background: url('../../static/imgs/perfilPhoto.png') no-repeat center/contain;
 }
 
-.mainContentDescrpt .pathCubes{
-  position: absolute;
+.homePageContent .projectComponent{
+  width: 100%;
 }
 
-.mainContentDescrpt .skills{
-  width: 80px;
-  aspect-ratio: 1 / 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(0, 0); /* essencial */
-  /* transform: translateX(-462%) translateY(-308%); */
-}
 
-.mainContentDescrpt .skills.figmaSkill{
-  background: url('../../static/imgs/figmaIcon.png') no-repeat center/contain;
-}
 
-.mainContentDescrpt .skills.linuxSkill{
-  background: url('../../static/imgs/linuxIcon.png') no-repeat center/contain;
+
+
+
+/* HABILIDADE */
+
+.homePageContent .habilidadeComponent{
+  width: 100%;
 }

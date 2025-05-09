@@ -1,0 +1,110 @@
+import { Component, Element, Host, Listen, State, h } from '@stencil/core';
+import { projectStaticObject } from './project-static-objects';
+
+@Component({
+  tag: 'my-projects-component',
+  styleUrl: 'my-projects-component.css',
+  shadow: true,
+})
+
+export class MyProjectsComponent {
+
+  @Element() el: HTMLElement;
+  @State() scrollView: boolean = false;
+  @State() scrollCount: number = 0;
+  scrollLimit: number = 10;
+  private bloqueiaScroll: boolean;
+
+  private projectsListObj = (new projectStaticObject).projectsListObj
+  
+  observer: IntersectionObserver;
+
+  bloquearScroll() {
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+  }
+  
+  liberarScroll() {
+    const scrollY = document.body.style.top;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+  }
+
+  componentDidLoad() {
+    const target = this.el.shadowRoot.querySelector('.projects .topCard');
+
+    this.observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+          this.scrollView = true;
+         
+      }
+    }, {
+      threshold: 1.0
+    });
+
+    if (target) this.observer.observe(target);
+  }
+
+
+  @Listen('wheel', { target: 'window' })
+  onScrollAttempt(event: WheelEvent) {
+    const targetCardProject = this.el.shadowRoot.querySelector('.projects .topCard') as HTMLDivElement;
+    const extraVisible = targetCardProject.getBoundingClientRect().bottom <= window.innerHeight - 50;
+
+    if(event.deltaY > 0){
+      if(extraVisible && this.scrollCount < this.scrollLimit && !this.bloqueiaScroll ){
+        console.log(extraVisible)
+        this.bloquearScroll();
+        this.bloqueiaScroll = true
+      }
+      if (this.scrollView && this.scrollCount < this.scrollLimit) {
+        event.preventDefault();
+        this.scrollCount++;
+        console.log('Scroll bloqueado, contador:', this.scrollCount);
+  
+        if (this.scrollCount >= this.scrollLimit) {
+          this.scrollView = false;
+          this.liberarScroll();
+          console.log('Scroll liberado!');
+        }
+      }
+    }else if(this.bloqueiaScroll){
+      this.liberarScroll();
+      this.bloqueiaScroll = false
+      this.scrollCount = 0
+    }
+  }
+
+  render() {
+    return (
+      <Host>
+        <div class="projects">
+            <div class="divisor"></div>
+            <p class="title">Projetos Recentes</p>
+
+            <div class="projectSlider">
+              <div class="divisor"></div>
+
+                {this.projectsListObj.map(projectObj =>{
+                      return <div class="cardProject">
+                        <div class="topCard">
+                          <div class="info1">
+                            <div class="title">{projectObj.title}</div>
+                            <div class="date">{projectObj.date}</div>
+                          </div>
+
+                          <div class="description">{projectObj.description}</div>
+                          <div class="openCar">X</div>
+                        </div>
+                      </div>
+                })}
+
+                <div class="divisor"></div>
+            </div>
+        </div>
+      </Host>
+    );
+  }
+}
