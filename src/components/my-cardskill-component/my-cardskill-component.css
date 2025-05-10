@@ -4,32 +4,138 @@ body{
 }
 
 .mainCardSkillContainer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
-  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* min-height: 100vh; */
   width: 100%;
+  padding: 30px 0 10vh;
   /* background-color: var(--blueDark3-home-color); */
 }
 
 .mainCardSkillContainer .blackHoleMainSkill{
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
   z-index: 10;
+  opacity: 0.6;
 }
 
 
 .mainCardSkillContainer .titleSkills{
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: relative;
   font-family: 'Nippo Variable', serif;
   font-size: 2.5em;
   font-weight: 700;
   color: var(--whiteBone-home-color);
   text-align: center;
   z-index: 11;
-  transform: translateX(-50%) translateY(-50%);
+  margin: 0 0 30px 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+/* CARD SKILL */
+
+
+
+.mainCardSkillContainer .gridSkills{
+  display: grid;
+  grid-template-columns: 15% 15% 15% 15% 15%  ;
+  grid-gap: 50px;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  z-index: 12;
+  /* opacity: 0; */
+}
+
+
+
+
+.mainCardSkillContainer .gridSkills .cardSkill{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  margin-bottom: 20px;
+}
+
+.mainCardSkillContainer .gridSkills .cardBack{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('../../static/imgs/shapeSkill.png') no-repeat center/contain;
+  margin-bottom: 20px;
+}
+
+
+.mainCardSkillContainer .gridSkills .cardSkill .imageBorder{
+  position: absolute;
+  top: calc(43% - 20px);
+  left: calc(43% - 20px);
+  width: 30%;
+  aspect-ratio: 1/1;
+  border: 2px solid #A259FF;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.mainCardSkillContainer .gridSkills .cardSkill .imageCenter{
+  width: 80%;
+  aspect-ratio: 1/1;
+}
+
+.mainCardSkillContainer .gridSkills .cardSkill.React .imageCenter{
+  background: url('../../static/imgs/reactIcon.png') no-repeat center/contain;
+}
+
+.mainCardSkillContainer .gridSkills .cardSkill.GitGitHub .imageCenter{
+  background: url('../../static/imgs/gitIcon.png') no-repeat center/contain;
+}
+
+.mainCardSkillContainer .gridSkills .cardSkill.PostgresSql .imageCenter{
+  background: url('../../static/imgs/postgresIcon.png') no-repeat center/contain;
+}
+
+.mainCardSkillContainer .gridSkills .cardSkill.NodeJs .imageCenter{
+  background: url('../../static/imgs/nodeIcon.png') no-repeat center/contain;
+}
+
+.mainCardSkillContainer .gridSkills .cardSkill.Stencil .imageCenter{
+  background: url('../../static/imgs/stencilIcon.png') no-repeat center/contain;
+}
+
+.mainCardSkillContainer .gridSkills .cardSkill.Linux .imageCenter{
+  background: url('../../static/imgs/linuxIcon.png') no-repeat center/contain;
+}
+
+.mainCardSkillContainer .gridSkills .cardSkill.Figma .imageCenter{
+  background: url('../../static/imgs/figmaIcon.png') no-repeat center/contain;
+}
+
+.mainCardSkillContainer .gridSkills .cardSkill.Java .imageCenter{
+  background: url('../../static/imgs/javaIcon.png') no-repeat center/contain;
+}
+
+.mainCardSkillContainer .gridSkills .cardSkill.Oracle .imageCenter{
+  background: url('../../static/imgs/oracleIcon.png') no-repeat center/contain;
+}
+
+.mainCardSkillContainer .gridSkills .cardSkill.Python .imageCenter{
+  background: url('../../static/imgs/pythonIcon.png') no-repeat center/contain;
+}
+

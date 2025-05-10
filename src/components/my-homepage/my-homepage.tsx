@@ -95,22 +95,21 @@ export class MyHomePage{
     C ${widthround(0)} ${heightround(0.64)}
       ${widthround(0.1)} ${heightround(0.7)}
      ${widthround(0.9)},${heightround(0.8)}
-
-    C ${widthround(1.2)},${heightround(0.8)}
-    ${widthround(0.5)} ${heightround(0)}
-    ${widthround(0.1)},${heightround(0.3)} 
-    Z`
-  }
-
-  
-  
-  render() {
-    return <Host>
+     
+     C ${widthround(1.2)},${heightround(0.8)}
+     ${widthround(0.5)} ${heightround(0)}
+     ${widthround(0.1)},${heightround(0.3)} 
+     Z`
+    }
+    
+    
+    
+    render() {
+      return <Host>
       <div class="homePageContent">
 
         <div class="mainShapeContent" >
 
-      <my-cardskill-component class="habilidadeComponent" />
           <div class="InitialView">
 
 
@@ -156,6 +155,9 @@ export class MyHomePage{
 
           <my-projects-component class="projectComponent"/> 
 
+          <my-cardskill-component class="habilidadeComponent" />
+
+          <my-about-component class="aboutComponent" />
 
         </div>
       </div>

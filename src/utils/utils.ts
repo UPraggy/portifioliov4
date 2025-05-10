@@ -115,7 +115,7 @@ export function circularPath({canvaContext, distanceFromCenter, x, y, radius, co
             // console.log((mousePos ? mousePos.x : x))
             this.radians += this.velocity 
             this.x = (mousePos ? mousePos.x : x) + Math.cos(this.radians) * this.distanceFromCenter.x
-            this.y = (mousePos ? mousePos.y : y) + Math.sin(this.radians) * this.distanceFromCenter.y //* 0.8
+            this.y = (mousePos ? mousePos.y : y) + Math.sin(this.radians) * this.distanceFromCenter.y * 0.6
             this.draw()
         }
 
