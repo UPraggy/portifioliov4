@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface MyAboutComponent {
+    }
     interface MyCanvasParticleComponent {
     }
     interface MyCardskillComponent {
@@ -16,6 +18,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLMyAboutComponentElement extends Components.MyAboutComponent, HTMLStencilElement {
+    }
+    var HTMLMyAboutComponentElement: {
+        prototype: HTMLMyAboutComponentElement;
+        new (): HTMLMyAboutComponentElement;
+    };
     interface HTMLMyCanvasParticleComponentElement extends Components.MyCanvasParticleComponent, HTMLStencilElement {
     }
     var HTMLMyCanvasParticleComponentElement: {
@@ -41,6 +49,7 @@ declare global {
         new (): HTMLMyProjectsComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "my-about-component": HTMLMyAboutComponentElement;
         "my-canvas-particle-component": HTMLMyCanvasParticleComponentElement;
         "my-cardskill-component": HTMLMyCardskillComponentElement;
         "my-homepage": HTMLMyHomepageElement;
@@ -48,6 +57,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface MyAboutComponent {
+    }
     interface MyCanvasParticleComponent {
     }
     interface MyCardskillComponent {
@@ -57,6 +68,7 @@ declare namespace LocalJSX {
     interface MyProjectsComponent {
     }
     interface IntrinsicElements {
+        "my-about-component": MyAboutComponent;
         "my-canvas-particle-component": MyCanvasParticleComponent;
         "my-cardskill-component": MyCardskillComponent;
         "my-homepage": MyHomepage;
@@ -67,6 +79,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "my-about-component": LocalJSX.MyAboutComponent & JSXBase.HTMLAttributes<HTMLMyAboutComponentElement>;
             "my-canvas-particle-component": LocalJSX.MyCanvasParticleComponent & JSXBase.HTMLAttributes<HTMLMyCanvasParticleComponentElement>;
             "my-cardskill-component": LocalJSX.MyCardskillComponent & JSXBase.HTMLAttributes<HTMLMyCardskillComponentElement>;
             "my-homepage": LocalJSX.MyHomepage & JSXBase.HTMLAttributes<HTMLMyHomepageElement>;
