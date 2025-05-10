@@ -1,4 +1,5 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Element, Host, Listen, h } from '@stencil/core';
+import { animate, onScroll } from 'animejs';
 
 @Component({
   tag: 'my-about-component',
@@ -7,6 +8,40 @@ import { Component, Host, h } from '@stencil/core';
 })
 
 export class MyAboutComponent {
+
+  @Element() el: HTMLElement;
+
+  getDiv(query){
+    return this.el.shadowRoot.querySelector(query)
+  }
+
+  componentDidLoad(){
+      animate(
+        this.getDiv('.leftDescription'),
+        {
+          translateY: ['300%', '0'],
+          opacity: [0, 1],
+          delay: 0,
+          ease: 'inOutExpo',
+          duration: 1500,
+          autoplay: onScroll({ container: this.getDiv('window'), debug: false })
+        }
+      )
+
+      animate(
+        this.getDiv('.rightPhoto'),
+        {
+          translateX: ['300%', '50%'],
+          opacity: [0, 1],
+          skewX: [-50, 0],
+          delay: 0,
+          ease: 'inOutExpo',
+          duration: 1500,
+          autoplay: onScroll({ container: this.getDiv('window'), debug: false })
+        }
+      )
+  }
+
   render() {
     return (
       <Host>
@@ -21,7 +56,7 @@ export class MyAboutComponent {
                 </span> <br /><br />
 
               Além disso atuo com planejamento técnico, participando de reuniões estratégicas e 
-              regras de negócio relacionado a sistemas, auxilio também em questão de suporte e 
+              regras de negócio relacionada a sistemas, auxilio também em questão de suporte e 
               treinamentos. <br /><br />
 
               Busco expressar através do meu código e design a preocupação com o usuário final, 

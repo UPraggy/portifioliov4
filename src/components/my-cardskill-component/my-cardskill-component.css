@@ -9,9 +9,9 @@ body{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* min-height: 100vh; */
+  height: 100vh;
   width: 100%;
-  padding: 30px 0 10vh;
+  margin: 30px 0 5vh;
   /* background-color: var(--blueDark3-home-color); */
 }
 
@@ -68,6 +68,17 @@ body{
   width: 100%;
   aspect-ratio: 1/1;
   margin-bottom: 20px;
+}
+
+.mainCardSkillContainer .gridSkills .textBottom {
+    color: var(--purpleBorder-color);
+    position: absolute;
+    bottom: 5%;
+    text-align: center;
+    width: 100%;
+    font-family: "Playfair Display", serif;
+    font-weight: 800;
+    font-size: 1.5em;
 }
 
 .mainCardSkillContainer .gridSkills .cardBack{

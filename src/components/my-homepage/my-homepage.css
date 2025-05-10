@@ -25,7 +25,8 @@
   min-height: 100vh;
   margin-top: 1vh;
   background-color: var(--blueDark3-home-color);
-  border-radius: 25px 25px 0 0 ;
+  border-radius: 25px 25px 25px 25px;
+  margin-bottom: 30px;
 }
 
 
@@ -219,6 +220,7 @@
 
 
 .mainContentDescrpt .left{
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -226,6 +228,7 @@
   width: 90%;
   height: 100%;
   margin-left: 10%;
+  z-index: 10;
 }
 
 .mainContentDescrpt .left .textProfission{
@@ -297,13 +300,16 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  z-index: 10;
+  z-index: 8;
 }
 
 .mainContentDescrpt .center .perfilPhoto{
-  width: 80%;
-  height: 80%;
+  /* width: 144%; */
+  position: relative;
+  height: 105%;
+  aspect-ratio: 3 / 2;
   background: url('../../static/imgs/perfilPhoto.png') no-repeat center/contain;
+  z-index: 2;
 }
 
 
