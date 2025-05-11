@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: 30% 75%;
   width: 95%;
-  margin: 5vh auto 50px auto;
+  margin: 5vh auto 20px auto;
   padding: 4.5% 2.5%;
   background-color: var(--whiteBone-home-color);
   align-items: flex-start;
@@ -32,9 +32,10 @@
 
 
 .mainExperienceContainer .experienceTable{
+  width: 90%;
   display: grid;
   grid-template-columns: 40% 40% 20%;
-  padding: 0 50px;
+  padding: 0 2.5%;
   font-family: 'Nippo Variable', sans-serif;
   font-weight: 300;
   font-size: 1em;
