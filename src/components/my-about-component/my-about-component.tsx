@@ -1,4 +1,4 @@
-import { Component, Element, Host, Listen, h } from '@stencil/core';
+import { Component, Element, Host, h } from '@stencil/core';
 import { animate, onScroll } from 'animejs';
 
 @Component({

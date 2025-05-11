@@ -316,7 +316,8 @@
 .homePageContent .projectComponent,
 .homePageContent .habilidadeComponent,
 .homePageContent .aboutComponent,
-.homePageContent .experienceComponent{
+.homePageContent .experienceComponent,
+.homePageContent .footerComponent{
   width: 100%;
   max-width: 100%;
 }

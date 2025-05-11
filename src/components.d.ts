@@ -14,6 +14,8 @@ export namespace Components {
     }
     interface MyExperienceComponent {
     }
+    interface MyFooterComponent {
+    }
     interface MyHomepage {
     }
     interface MyProjectsComponent {
@@ -44,6 +46,12 @@ declare global {
         prototype: HTMLMyExperienceComponentElement;
         new (): HTMLMyExperienceComponentElement;
     };
+    interface HTMLMyFooterComponentElement extends Components.MyFooterComponent, HTMLStencilElement {
+    }
+    var HTMLMyFooterComponentElement: {
+        prototype: HTMLMyFooterComponentElement;
+        new (): HTMLMyFooterComponentElement;
+    };
     interface HTMLMyHomepageElement extends Components.MyHomepage, HTMLStencilElement {
     }
     var HTMLMyHomepageElement: {
@@ -61,6 +69,7 @@ declare global {
         "my-canvas-particle-component": HTMLMyCanvasParticleComponentElement;
         "my-cardskill-component": HTMLMyCardskillComponentElement;
         "my-experience-component": HTMLMyExperienceComponentElement;
+        "my-footer-component": HTMLMyFooterComponentElement;
         "my-homepage": HTMLMyHomepageElement;
         "my-projects-component": HTMLMyProjectsComponentElement;
     }
@@ -74,6 +83,8 @@ declare namespace LocalJSX {
     }
     interface MyExperienceComponent {
     }
+    interface MyFooterComponent {
+    }
     interface MyHomepage {
     }
     interface MyProjectsComponent {
@@ -83,6 +94,7 @@ declare namespace LocalJSX {
         "my-canvas-particle-component": MyCanvasParticleComponent;
         "my-cardskill-component": MyCardskillComponent;
         "my-experience-component": MyExperienceComponent;
+        "my-footer-component": MyFooterComponent;
         "my-homepage": MyHomepage;
         "my-projects-component": MyProjectsComponent;
     }
@@ -95,6 +107,7 @@ declare module "@stencil/core" {
             "my-canvas-particle-component": LocalJSX.MyCanvasParticleComponent & JSXBase.HTMLAttributes<HTMLMyCanvasParticleComponentElement>;
             "my-cardskill-component": LocalJSX.MyCardskillComponent & JSXBase.HTMLAttributes<HTMLMyCardskillComponentElement>;
             "my-experience-component": LocalJSX.MyExperienceComponent & JSXBase.HTMLAttributes<HTMLMyExperienceComponentElement>;
+            "my-footer-component": LocalJSX.MyFooterComponent & JSXBase.HTMLAttributes<HTMLMyFooterComponentElement>;
             "my-homepage": LocalJSX.MyHomepage & JSXBase.HTMLAttributes<HTMLMyHomepageElement>;
             "my-projects-component": LocalJSX.MyProjectsComponent & JSXBase.HTMLAttributes<HTMLMyProjectsComponentElement>;
         }
