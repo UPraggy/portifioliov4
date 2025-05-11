@@ -121,10 +121,10 @@ export class MyHomePage{
 
             <div class="leftPath" ref={el => this.leftPathRef = el as HTMLDivElement}>
               <div class="socials">
-                  <div class="emailCircle"><div></div></div>
+                  <div class="emailCircle" onClick={()=>window.location.href="mailto:rafaelmoreira2001ofc@gmail.com"}><div></div></div>
                   <div class="social2Group">
-                      <div class="linkedInIcon"><div></div></div>
-                      <div class="gitIcon"><div></div></div>
+                      <div class="linkedInIcon" onClick={()=>window.location.href="https://www.linkedin.com/in/rafael-moreira-ramos-de-rezende-16420b21b/"}><div></div></div>
+                      <div class="gitIcon" onClick={()=>window.location.href="https://github.com/UPraggy"}><div></div></div>
                   </div>
               </div>
             </div>
