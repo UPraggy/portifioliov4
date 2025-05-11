@@ -110,6 +110,7 @@ export class MyHomePage{
 
         <div class="mainShapeContent" >
 
+
           <div class="InitialView">
 
 
@@ -159,6 +160,8 @@ export class MyHomePage{
 
           <my-about-component class="aboutComponent" />
 
+          <my-experience-component class="experienceComponent"/>
+          
         </div>
       </div>
     </Host>
