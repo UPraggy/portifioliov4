@@ -22,6 +22,9 @@ export class MyExperienceComponent {
             <div>Full Stack Developer</div>
             <div>Babita</div>
             <div>2023 - ATUAL</div>
+            <div>FreeLancer</div>
+            <div>-</div>
+            <div>2023 - ATUAL</div>
             <div>Estagiário TI</div>
             <div>Rádio Inconfidência</div>
             <div>2022 - 2023</div>
