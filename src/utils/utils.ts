@@ -28,17 +28,32 @@ export function returnSizeClientDiv({ref}: returnSizeClientDivInterface): {width
     return {width, height}
 }
 
-export function splitTextContentSpan(el: HTMLElement, queryClass: string){
-    let textProfissionelement = el.shadowRoot.querySelector(queryClass) as HTMLDivElement;
+export function splitTextContentSpan(el: HTMLElement, queryClass: string) {
+  const textProfissionElement = el.shadowRoot.querySelector(queryClass) as HTMLElement;
 
-    const textProfission = textProfissionelement.textContent || '';
-    textProfissionelement.innerHTML = '';
+  const textContent = textProfissionElement.textContent?.trim() || '';
+  textProfissionElement.innerHTML = '';
 
-    textProfission.split('').forEach((letter:string)=>{
+  const words = textContent.split(' ');
+
+  words.forEach(word => {
+    const wordDiv = document.createElement('div');
+    wordDiv.classList.add('word'); // optional: to style each word
+    wordDiv.style.display = 'inline-block'; // so it behaves like a word, not block
+
+    word.split('').forEach(letter => {
       const span = document.createElement('span');
-      span.textContent = letter == ' ' ? '\u00A0' : letter;
-      textProfissionelement.appendChild(span);
-  })
+      span.textContent = letter;
+      span.style.display = 'inline-block'; // keeps animation capability
+      wordDiv.appendChild(span);
+    });
+
+    // Add a space after the word
+    const space = document.createTextNode('\u00A0');
+
+    textProfissionElement.appendChild(wordDiv);
+    textProfissionElement.appendChild(space);
+  });
 }
 
 
