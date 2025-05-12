@@ -9,6 +9,7 @@ export namespace Components {
     interface MyAboutComponent {
     }
     interface MyCanvasParticleComponent {
+        "responsible": boolean;
     }
     interface MyCardskillComponent {
     }
@@ -78,6 +79,7 @@ declare namespace LocalJSX {
     interface MyAboutComponent {
     }
     interface MyCanvasParticleComponent {
+        "responsible"?: boolean;
     }
     interface MyCardskillComponent {
     }
