@@ -46,7 +46,9 @@
   background-color: var(--whiteBone-home-color);
 }
 
-
+.projects .projectCardComponent{
+  width: 100%;
+}
 
 
 .projects .cardProject,
@@ -55,6 +57,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  color: var(--whiteBone-home-color);
 }
 
 
@@ -62,10 +65,9 @@
   display: grid;
   grid-template-columns: 40% 55% 5%;
   align-items: center;
-  width: 75%;
+  width: 80%;
   padding: 20px 0;
-  color: var(--whiteBone-home-color);
-  cursor: pointer;
+  user-select: none;
 }
 
 .projects .cardProject .topCard .info1{
@@ -101,6 +103,16 @@
   height: 2px;
   background-color: var(--whiteBone-home-color);
   margin: 0 auto;
+  cursor: pointer;
+}
+
+.projectWrapper .openCard::before{
+  position: absolute;
+  content: '';
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  margin: 0 auto;
 }
 
 .projectWrapper .openCard:not(.active)::after{
@@ -111,3 +123,63 @@
   background-color: var(--whiteBone-home-color);
 }
 
+
+
+.projects .cardProject .topCard.showcard {
+    display: grid;
+    grid-template-columns: 95% 5%;
+    background-color: var(--whiteBone-home-color);
+    color: var(--blueDark3-home-color);
+}
+.projects .cardProject .topCard.showcard .info1 {
+    justify-content: center;
+}
+
+.projectWrapper .topCard.showcard .openCard::after {
+    display: none;
+}
+
+.projectWrapper .topCard.showcard .openCard {
+    background-color: var(--blueDark3-home-color);
+}
+
+
+.projectWrapper .info{
+  display: grid;
+  grid-template-columns: 40% 55%;
+  grid-gap: 5%;
+  margin: 15px 0 20px 0;
+  width: 78%;
+}
+
+
+.projectWrapper .info .description{
+  font-family: "Neuton", serif;
+  font-weight: 400;
+  font-size: 1.5em;
+  user-select: none;
+}
+
+.projectWrapper .info .image{
+  width: 100%;
+  aspect-ratio: 2/1;
+  background: var(--imageSliderProject) no-repeat center/contain;
+}
+
+.projectWrapper .info .viewInfoCard,
+.projectWrapper .info .tecnologiesCard{
+  width: 94%;
+  background-color: var(--blueLinkedIn-color);
+  padding: 5px 3%;
+  margin-top: 20px;
+  border-radius: 5px;
+  font-family: "Fugaz One", sans-serif;
+  font-weight: 700;
+}
+
+.projectWrapper .info .viewInfoCard{
+  background-color: var(--blueGreen-light-color);
+  cursor: pointer;
+  user-select: none;
+  width: fit-content;
+}

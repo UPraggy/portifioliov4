@@ -21,6 +21,17 @@ export namespace Components {
     }
     interface MyProjectsComponent {
     }
+    interface MyProjectscardComponent {
+        "projectObj": {
+        title: string,
+        date: string,
+        description: HTMLElement,
+        sinopse: string,
+        imagesSlider: string[],
+        tecnologias: string,
+        funccionality: string
+    };
+    }
 }
 declare global {
     interface HTMLMyAboutComponentElement extends Components.MyAboutComponent, HTMLStencilElement {
@@ -65,6 +76,12 @@ declare global {
         prototype: HTMLMyProjectsComponentElement;
         new (): HTMLMyProjectsComponentElement;
     };
+    interface HTMLMyProjectscardComponentElement extends Components.MyProjectscardComponent, HTMLStencilElement {
+    }
+    var HTMLMyProjectscardComponentElement: {
+        prototype: HTMLMyProjectscardComponentElement;
+        new (): HTMLMyProjectscardComponentElement;
+    };
     interface HTMLElementTagNameMap {
         "my-about-component": HTMLMyAboutComponentElement;
         "my-canvas-particle-component": HTMLMyCanvasParticleComponentElement;
@@ -73,6 +90,7 @@ declare global {
         "my-footer-component": HTMLMyFooterComponentElement;
         "my-homepage": HTMLMyHomepageElement;
         "my-projects-component": HTMLMyProjectsComponentElement;
+        "my-projectscard-component": HTMLMyProjectscardComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -91,6 +109,17 @@ declare namespace LocalJSX {
     }
     interface MyProjectsComponent {
     }
+    interface MyProjectscardComponent {
+        "projectObj"?: {
+        title: string,
+        date: string,
+        description: HTMLElement,
+        sinopse: string,
+        imagesSlider: string[],
+        tecnologias: string,
+        funccionality: string
+    };
+    }
     interface IntrinsicElements {
         "my-about-component": MyAboutComponent;
         "my-canvas-particle-component": MyCanvasParticleComponent;
@@ -99,6 +128,7 @@ declare namespace LocalJSX {
         "my-footer-component": MyFooterComponent;
         "my-homepage": MyHomepage;
         "my-projects-component": MyProjectsComponent;
+        "my-projectscard-component": MyProjectscardComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -112,6 +142,7 @@ declare module "@stencil/core" {
             "my-footer-component": LocalJSX.MyFooterComponent & JSXBase.HTMLAttributes<HTMLMyFooterComponentElement>;
             "my-homepage": LocalJSX.MyHomepage & JSXBase.HTMLAttributes<HTMLMyHomepageElement>;
             "my-projects-component": LocalJSX.MyProjectsComponent & JSXBase.HTMLAttributes<HTMLMyProjectsComponentElement>;
+            "my-projectscard-component": LocalJSX.MyProjectscardComponent & JSXBase.HTMLAttributes<HTMLMyProjectscardComponentElement>;
         }
     }
 }

@@ -26,20 +26,7 @@ export class MyProjectsComponent {
               <div class="divisor"></div>
 
                 {this.projectsListObj.map(projectObj =>{
-                      return <div class="projectWrapper">
-                        <div class="cardProject">
-                            <div class="topCard">
-                              <div class="info1">
-                                <div class="title">{projectObj.title}</div>
-                                <div class="date">{projectObj.date}</div>
-                              </div>
-
-                              <div class="description">{projectObj.description}</div>
-                              <div class="openCard"></div>
-                            </div>
-                          </div>
-                          <div class="divisor"></div>
-                      </div>
+                      return <my-projectscard-component class="projectCardComponent" projectObj={projectObj}/>
                 })}
 
                 

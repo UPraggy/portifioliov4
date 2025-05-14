@@ -176,15 +176,16 @@ export class MyHomePage{
          </div> 
 
 
+
+          <my-cardskill-component class="habilidadeComponent" />
+
+          <my-about-component class="aboutComponent" />
+
           <my-projects-component class="projectComponent"/> 
+          
+          <my-experience-component class="experienceComponent"/>
 
-          {/* <my-cardskill-component class="habilidadeComponent" /> */}
-
-          {/* <my-about-component class="aboutComponent" /> */}
-
-          {/* <my-experience-component class="experienceComponent"/> */}
-
-          {/* <my-footer-component class="footerComponent"/> */}
+          <my-footer-component class="footerComponent"/>
 
         </div>
       </div>
