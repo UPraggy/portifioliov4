@@ -1,0 +1,55 @@
+:host {
+  display: block;
+}
+
+.projectsContainer.responsiveMobile{
+  padding: 0px 0 30px 0;
+}
+
+
+.projectsContainer.responsiveMobile .sinopse{
+  display: none;
+}
+
+
+.projectsContainer.responsiveMobile > .divisor{
+  width: 95%;
+}
+
+.projectsContainer.responsiveMobile > .title{
+  width: 90%;
+  margin-top: 20px;
+}
+
+
+.projectsContainer.responsiveMobile .projectSlider .divisor{
+  width: 95%;
+}
+
+.projectsContainer.responsiveMobile .cardProject .topCard{
+  grid-template-columns: 90% 10%;
+  width: 95%;
+}
+
+.projectsContainer.responsiveMobile .cardProject .topCard.showcard {
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
+.projectsContainer.responsiveMobile .projectWrapper .info {
+    display: flex;
+    flex-direction: column-reverse;
+    grid-gap: 5%;
+    width: 90%;
+}
+
+.projectsContainer.responsiveMobile .projectWrapper .slideShowCard {
+    margin-bottom: 30px;
+}
+
+/* .projectsContainer.responsiveMobile .projectWrapper .viewInfoCard,
+.projectsContainer.responsiveMobile .projectWrapper .tecnologiesCard {
+    margin: 0 auto;
+} */
+
+
