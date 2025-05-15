@@ -2,7 +2,7 @@ import { Component, Host, Prop, State, h } from '@stencil/core';
 
 @Component({
   tag: 'my-projectscard-component',
-  styleUrl: 'my-projects-component.css',
+  styleUrls: ['my-projects-component.css', 'my-projects-component-mobile.css'],
   shadow: false,
 })
 
@@ -37,7 +37,7 @@ export class MyProjectsCardComponent {
                     <div class="date">{this.projectObj.date}</div>
                     </div>
 
-                    {!this.showCard ? this.projectObj.sinopse : ''}
+                    {!this.showCard ? <div class="sinopse">{this.projectObj.sinopse}</div> : ''}
                     <div class="openCard" onClick={()=>this.showCard = !this.showCard}></div>
                 </div>
                 </div>

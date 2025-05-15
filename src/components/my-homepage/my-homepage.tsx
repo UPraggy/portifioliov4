@@ -183,11 +183,6 @@ export class MyHomePage{
 
            <my-projects-component class="projectComponent"  responsible={this.windowSize.width <= 767}/> 
 
-          {/*<my-experience-component class="experienceComponent"  responsible={this.windowSize.width <= 767}/>
-
-          <my-footer-component class="footerComponent"  responsible={this.windowSize.width <= 767}/> */}
-
-          <my-projects-component class="projectComponent"/> 
           
           <my-experience-component class="experienceComponent"/>
 
