@@ -1,4 +1,4 @@
-import { Component, Element, Host, Listen, State, h } from '@stencil/core';
+import { Component, Element, Host, Listen, Prop, State, h } from '@stencil/core';
 import { Cirle } from '../../utils/utils';
 
 @Component({
@@ -12,7 +12,7 @@ export class MyCanvasParticleComponent{
 
   @Element() el: HTMLElement;
   @State() statusAnimation:boolean = true;
-
+  @Prop() responsible: boolean;
 
 
   componentDidLoad(){

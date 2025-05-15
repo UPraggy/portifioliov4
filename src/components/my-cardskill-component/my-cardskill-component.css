@@ -50,6 +50,7 @@ body{
 
 
 .mainCardSkillContainer .gridSkills{
+  position: relative;
   display: grid;
   grid-template-columns: 15% 15% 15% 15% 15%  ;
   grid-gap: 50px;
@@ -71,7 +72,7 @@ body{
 }
 
 .mainCardSkillContainer .gridSkills .textBottom {
-    color: var(--purpleBorder-color);
+    color: var(--blueCian-light-color);
     position: absolute;
     bottom: 5%;
     text-align: center;
@@ -96,7 +97,7 @@ body{
   left: calc(43% - 20px);
   width: 30%;
   aspect-ratio: 1/1;
-  border: 2px solid #A259FF;
+  border: 2px solid var(--blueCian-light-color);
   padding: 5px;
   border-radius: 50%;
   display: flex;

@@ -1,0 +1,122 @@
+:host .mainShapeContent.responsiveMobile .InitialView {
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+
+/* CANVA */
+:host .mainShapeContent.responsiveMobile  .mainShapeContent .canvaMain{
+  height: 100vh;
+  max-height: 100vh;
+}
+
+
+/* TOP PATH */
+
+:host .mainShapeContent.responsiveMobile .topPath{
+  left: calc(15%);
+  width: 70%;
+  height: 1.8em;
+}
+
+:host .mainShapeContent.responsiveMobile .namePortfolio{
+  font-size: 1.2em;
+}
+
+
+/* Main Content Desc */
+
+:host .mainShapeContent.responsiveMobile .mainContentDescrpt .left {
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+    margin-left: 0;
+}
+
+
+:host .mainShapeContent.responsiveMobile  .mainContentDescrpt .left .textProfission {
+    justify-content: center;
+    font-size: 1.8em;
+}
+
+
+:host .mainShapeContent.responsiveMobile .mainContentDescrpt .left .curriculumBtn {
+    margin: 30px auto 10px auto;
+}
+
+
+:host .mainShapeContent.responsiveMobile .mainContentDescrpt .left .curriculumBtn .text {
+    margin-left: 4%;
+    font-size: 0.9em;
+}
+
+:host .mainShapeContent.responsiveMobile .mainContentDescrpt{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: unset;
+    margin-top: 35px;
+    z-index: 5;
+}
+
+:host .mainShapeContent.responsiveMobile .mainContentDescrpt .center {
+    align-items: flex-start;
+}
+
+:host .mainShapeContent.responsiveMobile  .mainContentDescrpt .center .perfilPhoto{
+  width: 100%;
+  aspect-ratio: 0.8666 /1;
+  overflow: hidden;
+}
+
+
+/* LEFT PATH */
+
+:host .mainShapeContent.responsiveMobile .leftPath{
+  left: unset;
+  right: -10px;
+  margin: 0 10px 0 0;
+  top: calc(10%);
+  width: 40px;
+  padding-right: 5px;
+  height: calc(35px*5);
+}
+
+:host .mainShapeContent.responsiveMobile .leftPath .socials .emailCircle,
+:host .mainShapeContent.responsiveMobile .leftPath .socials .linkedInIcon,
+:host .mainShapeContent.responsiveMobile .leftPath .socials .gitIcon{
+  width: 40px;
+}
+
+:host .mainShapeContent.responsiveMobile .leftPath .socials .emailCircle div,
+:host .mainShapeContent.responsiveMobile .leftPath .socials .gitIcon div,
+:host .mainShapeContent.responsiveMobile .leftPath .socials .linkedInIcon div{
+  width: 20px;
+}
+
+/* DESC PATH */
+
+:host .descPath{
+  width: 50%;
+  background-color: var(--whiteBone-home-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 0 auto 0 auto;
+  z-index: 10;
+  min-height: calc(7em);
+  text-align: center;
+  transform: translateY(-70%);
+}
+
+:host  .descPath{
+  width: 92%;
+  font-family: 'Futura Hv BT', sans-serif;
+  font-weight: 800;
+  font-size: 0.7em;
+  color: var(--bluegray-color);
+  user-select: none;
+}

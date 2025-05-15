@@ -3,7 +3,7 @@
 }
 
 
-.projects{
+.projectsContainer{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,14 +13,14 @@
   padding: 15vh 0 10vh 0;
 }
 
-.projects > .divisor{
+.projectsContainer > .divisor{
   width: 50%;
   height: 3px;
   background-color: var(--whiteBone-home-color);
 }
 
 
-.projects > .title{
+.projectsContainer > .title{
   width: 50%;
   height: 3px;
   font-family: "Poppins", sans-serif;
@@ -32,7 +32,7 @@
 }
 
 
-.projects .projectSlider{
+.projectsContainer .projectSlider{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,35 +40,37 @@
   margin-top: 70px;
 }
 
-.projects .projectSlider .divisor{
+.projectsContainer .projectSlider .divisor{
   width: 80%;
   height: 1px;
   background-color: var(--whiteBone-home-color);
 }
 
-
-
-
-.projects .cardProject,
-.projects .projectWrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.projectsContainer .projectCardComponent{
   width: 100%;
 }
 
 
-.projects .cardProject .topCard{
+.projectsContainer .cardProject,
+.projectsContainer .projectWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: var(--whiteBone-home-color);
+}
+
+
+.projectsContainer .cardProject .topCard{
   display: grid;
   grid-template-columns: 40% 55% 5%;
   align-items: center;
-  width: 75%;
+  width: 80%;
   padding: 20px 0;
-  color: var(--whiteBone-home-color);
-  cursor: pointer;
+  user-select: none;
 }
 
-.projects .cardProject .topCard .info1{
+.projectsContainer .cardProject .topCard .info1{
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
@@ -76,7 +78,7 @@
 }
 
 
-.projects .cardProject .topCard .info1 .title{
+.projectsContainer .cardProject .topCard .info1 .title{
   font-size: 1.5em;
   margin-right: 7px;
   letter-spacing: 0;
@@ -86,14 +88,14 @@
   font-style: italic;
 }
 
-.projects .cardProject .topCard .info1 .date{
+.projectsContainer .cardProject .topCard .info1 .date{
   font-size: 1em;
   letter-spacing: 0;
   line-height: 1;
 }
 
 
-.projectWrapper .openCard{
+.projectsContainer .projectWrapper .openCard{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,9 +103,19 @@
   height: 2px;
   background-color: var(--whiteBone-home-color);
   margin: 0 auto;
+  cursor: pointer;
 }
 
-.projectWrapper .openCard:not(.active)::after{
+.projectsContainer .projectWrapper .openCard::before{
+  position: absolute;
+  content: '';
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  margin: 0 auto;
+}
+
+.projectsContainer .projectWrapper .openCard:not(.active)::after{
   content: '';
   width: 2px;
   height: 30px;
@@ -111,3 +123,63 @@
   background-color: var(--whiteBone-home-color);
 }
 
+
+
+.projectsContainer .cardProject .topCard.showcard {
+    display: grid;
+    grid-template-columns: 95% 5%;
+    background-color: var(--whiteBone-home-color);
+    color: var(--blueDark3-home-color);
+}
+.projectsContainer .cardProject .topCard.showcard .info1 {
+    justify-content: center;
+}
+
+.projectsContainer .projectWrapper .topCard.showcard .openCard::after {
+    display: none;
+}
+
+.projectsContainer .projectWrapper .topCard.showcard .openCard {
+    background-color: var(--blueDark3-home-color);
+}
+
+
+.projectsContainer .projectWrapper .info{
+  display: grid;
+  grid-template-columns: 40% 55%;
+  grid-gap: 5%;
+  margin: 15px 0 20px 0;
+  width: 78%;
+}
+
+
+.projectsContainer .projectWrapper .info .description{
+  font-family: "Neuton", serif;
+  font-weight: 400;
+  font-size: 1.5em;
+  user-select: none;
+}
+
+.projectsContainer .projectWrapper .info .image{
+  width: 100%;
+  aspect-ratio: 2/1;
+  background: var(--imageSliderProject) no-repeat center/contain;
+}
+
+.projectsContainer .projectWrapper .info .viewInfoCard,
+.projectsContainer .projectWrapper .info .tecnologiesCard{
+  width: 94%;
+  background-color: var(--blueLinkedIn-color);
+  padding: 5px 3%;
+  margin-top: 20px;
+  border-radius: 5px;
+  font-family: "Fugaz One", sans-serif;
+  font-weight: 700;
+}
+
+.projectsContainer .projectWrapper .info .viewInfoCard{
+  background-color: var(--blueGreen-light-color);
+  cursor: pointer;
+  user-select: none;
+  width: fit-content;
+}

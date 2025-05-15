@@ -1,4 +1,4 @@
-import { Component, Element, Host, h } from '@stencil/core';
+import { Component, Element, Host, Listen, Prop, State, h } from '@stencil/core';
 import { projectStaticObject } from './project-static-objects';
 
 @Component({
@@ -11,14 +11,29 @@ export class MyProjectsComponent {
 
   @Element() el: HTMLElement;
 
+  @Prop() responsible: boolean;
+  
+  @State() windowSize: { width: number; height: number } = {
+            width: window.innerWidth,
+            height: window.innerHeight,
+          };
+
   private projectsListObj = (new projectStaticObject).projectsListObj
   
+  @Listen('resize', {target: 'window'})
+            getWindowDimensions(){
+              console.log("resize")
+              this.windowSize = {
+                width: window.innerWidth,
+                height: window.innerHeight,
+              };
+            }
 
 
   render() {
     return (
       <Host>
-        <div class="projects">
+        <div class={`projectsContainer ${this.windowSize.width <= 767 ? 'responsiveMobile' : ''}`} >
             <div class="divisor"></div>
             <p class="title">Projetos Recentes</p>
 
@@ -26,20 +41,7 @@ export class MyProjectsComponent {
               <div class="divisor"></div>
 
                 {this.projectsListObj.map(projectObj =>{
-                      return <div class="projectWrapper">
-                        <div class="cardProject">
-                            <div class="topCard">
-                              <div class="info1">
-                                <div class="title">{projectObj.title}</div>
-                                <div class="date">{projectObj.date}</div>
-                              </div>
-
-                              <div class="description">{projectObj.description}</div>
-                              <div class="openCard"></div>
-                            </div>
-                          </div>
-                          <div class="divisor"></div>
-                      </div>
+                      return <my-projectscard-component class="projectCardComponent" projectObj={projectObj}/>
                 })}
 
                 

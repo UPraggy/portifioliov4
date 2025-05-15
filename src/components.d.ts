@@ -7,14 +7,33 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MyAboutComponent {
+        "responsible": boolean;
     }
     interface MyCanvasParticleComponent {
+        "responsible": boolean;
     }
     interface MyCardskillComponent {
+        "responsible": boolean;
+    }
+    interface MyExperienceComponent {
+    }
+    interface MyFooterComponent {
     }
     interface MyHomepage {
     }
     interface MyProjectsComponent {
+        "responsible": boolean;
+    }
+    interface MyProjectscardComponent {
+        "projectObj": {
+        title: string,
+        date: string,
+        description: HTMLElement,
+        sinopse: string,
+        imagesSlider: string[],
+        tecnologias: string,
+        funccionality: string
+    };
     }
 }
 declare global {
@@ -36,6 +55,18 @@ declare global {
         prototype: HTMLMyCardskillComponentElement;
         new (): HTMLMyCardskillComponentElement;
     };
+    interface HTMLMyExperienceComponentElement extends Components.MyExperienceComponent, HTMLStencilElement {
+    }
+    var HTMLMyExperienceComponentElement: {
+        prototype: HTMLMyExperienceComponentElement;
+        new (): HTMLMyExperienceComponentElement;
+    };
+    interface HTMLMyFooterComponentElement extends Components.MyFooterComponent, HTMLStencilElement {
+    }
+    var HTMLMyFooterComponentElement: {
+        prototype: HTMLMyFooterComponentElement;
+        new (): HTMLMyFooterComponentElement;
+    };
     interface HTMLMyHomepageElement extends Components.MyHomepage, HTMLStencilElement {
     }
     var HTMLMyHomepageElement: {
@@ -48,31 +79,62 @@ declare global {
         prototype: HTMLMyProjectsComponentElement;
         new (): HTMLMyProjectsComponentElement;
     };
+    interface HTMLMyProjectscardComponentElement extends Components.MyProjectscardComponent, HTMLStencilElement {
+    }
+    var HTMLMyProjectscardComponentElement: {
+        prototype: HTMLMyProjectscardComponentElement;
+        new (): HTMLMyProjectscardComponentElement;
+    };
     interface HTMLElementTagNameMap {
         "my-about-component": HTMLMyAboutComponentElement;
         "my-canvas-particle-component": HTMLMyCanvasParticleComponentElement;
         "my-cardskill-component": HTMLMyCardskillComponentElement;
+        "my-experience-component": HTMLMyExperienceComponentElement;
+        "my-footer-component": HTMLMyFooterComponentElement;
         "my-homepage": HTMLMyHomepageElement;
         "my-projects-component": HTMLMyProjectsComponentElement;
+        "my-projectscard-component": HTMLMyProjectscardComponentElement;
     }
 }
 declare namespace LocalJSX {
     interface MyAboutComponent {
+        "responsible"?: boolean;
     }
     interface MyCanvasParticleComponent {
+        "responsible"?: boolean;
     }
     interface MyCardskillComponent {
+        "responsible"?: boolean;
+    }
+    interface MyExperienceComponent {
+    }
+    interface MyFooterComponent {
     }
     interface MyHomepage {
     }
     interface MyProjectsComponent {
+        "responsible"?: boolean;
+    }
+    interface MyProjectscardComponent {
+        "projectObj"?: {
+        title: string,
+        date: string,
+        description: HTMLElement,
+        sinopse: string,
+        imagesSlider: string[],
+        tecnologias: string,
+        funccionality: string
+    };
     }
     interface IntrinsicElements {
         "my-about-component": MyAboutComponent;
         "my-canvas-particle-component": MyCanvasParticleComponent;
         "my-cardskill-component": MyCardskillComponent;
+        "my-experience-component": MyExperienceComponent;
+        "my-footer-component": MyFooterComponent;
         "my-homepage": MyHomepage;
         "my-projects-component": MyProjectsComponent;
+        "my-projectscard-component": MyProjectscardComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -82,8 +144,11 @@ declare module "@stencil/core" {
             "my-about-component": LocalJSX.MyAboutComponent & JSXBase.HTMLAttributes<HTMLMyAboutComponentElement>;
             "my-canvas-particle-component": LocalJSX.MyCanvasParticleComponent & JSXBase.HTMLAttributes<HTMLMyCanvasParticleComponentElement>;
             "my-cardskill-component": LocalJSX.MyCardskillComponent & JSXBase.HTMLAttributes<HTMLMyCardskillComponentElement>;
+            "my-experience-component": LocalJSX.MyExperienceComponent & JSXBase.HTMLAttributes<HTMLMyExperienceComponentElement>;
+            "my-footer-component": LocalJSX.MyFooterComponent & JSXBase.HTMLAttributes<HTMLMyFooterComponentElement>;
             "my-homepage": LocalJSX.MyHomepage & JSXBase.HTMLAttributes<HTMLMyHomepageElement>;
             "my-projects-component": LocalJSX.MyProjectsComponent & JSXBase.HTMLAttributes<HTMLMyProjectsComponentElement>;
+            "my-projectscard-component": LocalJSX.MyProjectscardComponent & JSXBase.HTMLAttributes<HTMLMyProjectscardComponentElement>;
         }
     }
 }
