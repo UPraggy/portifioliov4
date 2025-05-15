@@ -7,11 +7,17 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MyAboutComponent {
+        "responsible": boolean;
     }
     interface MyCanvasParticleComponent {
         "responsible": boolean;
     }
     interface MyCardskillComponent {
+        "responsible": boolean;
+    }
+    interface MyExperienceComponent {
+    }
+    interface MyFooterComponent {
     }
     interface MyExperienceComponent {
     }
@@ -20,6 +26,18 @@ export namespace Components {
     interface MyHomepage {
     }
     interface MyProjectsComponent {
+        "responsible": boolean;
+    }
+    interface MyProjectscardComponent {
+        "projectObj": {
+        title: string,
+        date: string,
+        description: HTMLElement,
+        sinopse: string,
+        imagesSlider: string[],
+        tecnologias: string,
+        funccionality: string
+    };
     }
     interface MyProjectscardComponent {
         "projectObj": {
@@ -95,11 +113,17 @@ declare global {
 }
 declare namespace LocalJSX {
     interface MyAboutComponent {
+        "responsible"?: boolean;
     }
     interface MyCanvasParticleComponent {
         "responsible"?: boolean;
     }
     interface MyCardskillComponent {
+        "responsible"?: boolean;
+    }
+    interface MyExperienceComponent {
+    }
+    interface MyFooterComponent {
     }
     interface MyExperienceComponent {
     }
@@ -108,6 +132,18 @@ declare namespace LocalJSX {
     interface MyHomepage {
     }
     interface MyProjectsComponent {
+        "responsible"?: boolean;
+    }
+    interface MyProjectscardComponent {
+        "projectObj"?: {
+        title: string,
+        date: string,
+        description: HTMLElement,
+        sinopse: string,
+        imagesSlider: string[],
+        tecnologias: string,
+        funccionality: string
+    };
     }
     interface MyProjectscardComponent {
         "projectObj"?: {

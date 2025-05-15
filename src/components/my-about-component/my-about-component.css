@@ -67,3 +67,37 @@
   /* border: 1px solid var(--whiteBone-home-color); */
 }
 
+
+
+
+/* RESPONSIBLE */
+
+.mainAboutContainer.responsiveMobile{
+  flex-direction: column-reverse;
+  max-height: unset;
+      margin: 50px auto 20px auto;
+}
+
+
+.mainAboutContainer.responsiveMobile .leftDescription{
+  position: relative;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.mainAboutContainer.responsiveMobile .leftDescription .textDescription{
+  width: 95%;
+  text-align: left;
+  margin: 0px auto 20px auto;
+}
+
+
+.mainAboutContainer.responsiveMobile .rightPhoto{
+  position: relative;
+  height: auto;
+  max-height: unset;
+  width: 80%;
+  aspect-ratio: 0.666 /1 ;
+  transform: translateX(0%);
+  margin: 0 auto;
+}

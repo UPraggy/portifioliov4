@@ -1,0 +1,45 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.mainCardSkillContainer.responsiveMobile{
+  position: relative;
+  height: auto;
+  z-index: 15;
+}
+
+.mainCardSkillContainer.responsiveMobile .blackHoleMainSkill{
+  position: absolute;
+  top: 5%;
+  width: 100%;
+  height: 50%;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+
+
+/* CARD SKILL */
+
+
+
+.mainCardSkillContainer.responsiveMobile .gridSkills{
+  justify-content: space-around;
+  grid-template-columns: 45% 45%;
+  grid-gap: 0;
+  overflow-y: hidden;
+}
+
+.mainCardSkillContainer.responsiveMobile .gridSkills .cardSkill{
+  margin-bottom: 10px;
+}
+
+.mainCardSkillContainer.responsiveMobile .gridSkills .textBottom {
+    font-size: 0.8em;
+}
+
+.mainCardSkillContainer.responsiveMobile .gridSkills .cardSkill .imageBorder{
+  top: calc(35% - 7px);
+  left: calc(35% - 7px);
+}

@@ -1,10 +1,10 @@
-import { Component, Element, h, Host, State } from '@stencil/core';
+import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core';
 import { circularPath, randomIntFromRange } from '../../utils/utils';
 import { animate, onScroll, stagger } from 'animejs';
 
 @Component({
   tag: 'my-cardskill-component',
-  styleUrls: ['./my-cardskill-component.css', '../../global/colors.css'],
+  styleUrls: ['./my-cardskill-component.css', './my-cardskill-component-mobile.css', '../../global/colors.css'],
   shadow: true,
 })
 export class MyCardSkillComponent{
@@ -12,6 +12,12 @@ export class MyCardSkillComponent{
   @Element() el: HTMLElement;
   @State() incrementRadius: number = 0;
   @State() mousePos: {x:number, y:number};
+  @Prop() responsible: boolean;
+
+  @State() windowSize: { width: number; height: number } = {
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
 
   getDiv(query){
     return this.el.shadowRoot.querySelector(query)
@@ -28,7 +34,9 @@ export class MyCardSkillComponent{
     if(canvasDivElement){
       canvasElement.width = canvasDivElement.clientWidth;
       canvasElement.height = canvasDivElement.clientHeight;
-      this.createBlackHole({canvasElement})
+      if (!(this.windowSize.width <= 767)){
+        this.createBlackHole({canvasElement})
+      }
     }
 
      animate(
@@ -133,6 +141,8 @@ export class MyCardSkillComponent{
 
   
   hoverSkillCard(event){
+    if (this.windowSize.width <= 767) return;
+
     const card = event.currentTarget.querySelector(':scope > .cardBack') as HTMLElement;
     const text = event.currentTarget.querySelector(':scope > .textBottom') as HTMLElement;
 
@@ -169,12 +179,19 @@ mouseLeaveSkillCard(event){
     }
 
 
-    
+    @Listen('resize', {target: 'window'})
+        getWindowDimensions(){
+          console.log("resize")
+          this.windowSize = {
+            width: window.innerWidth,
+            height: window.innerHeight,
+          };
+        }
   
 
   render() {
     return <Host>
-      <div class="mainCardSkillContainer">
+      <div class={`mainCardSkillContainer ${this.windowSize.width <= 767 ? 'responsiveMobile' : ''}`}>
               <canvas class="blackHoleMainSkill"></canvas>
               <div class="titleSkills">Habilidades</div>
 

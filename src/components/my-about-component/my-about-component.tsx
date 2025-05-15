@@ -1,4 +1,4 @@
-import { Component, Element, Host, h } from '@stencil/core';
+import { Component, Element, Host, Listen, Prop, State, h } from '@stencil/core';
 import { animate, onScroll } from 'animejs';
 
 @Component({
@@ -10,6 +10,12 @@ import { animate, onScroll } from 'animejs';
 export class MyAboutComponent {
 
   @Element() el: HTMLElement;
+  @Prop() responsible: boolean;
+
+  @State() windowSize: { width: number; height: number } = {
+            width: window.innerWidth,
+            height: window.innerHeight,
+          };
 
   getDiv(query){
     return this.el.shadowRoot.querySelector(query)
@@ -19,7 +25,7 @@ export class MyAboutComponent {
       animate(
         this.getDiv('.leftDescription'),
         {
-          translateY: ['300%', '0'],
+          translateY: this.windowSize.width <= 767 ? ['300%', '-15%'] : ['300%', '0%'],
           opacity: [0, 1],
           delay: 0,
           ease: 'inOutExpo',
@@ -31,7 +37,7 @@ export class MyAboutComponent {
       animate(
         this.getDiv('.rightPhoto'),
         {
-          translateX: ['300%', '50%'],
+          translateX: this.windowSize.width <= 767 ? ['300%', '0%'] : ['300%', '50%'],
           opacity: [0, 1],
           skewX: [-50, 0],
           delay: 0,
@@ -42,10 +48,19 @@ export class MyAboutComponent {
       )
   }
 
+  @Listen('resize', {target: 'window'})
+          getWindowDimensions(){
+            console.log("resize")
+            this.windowSize = {
+              width: window.innerWidth,
+              height: window.innerHeight,
+            };
+          }
+
   render() {
     return (
       <Host>
-        <div class="mainAboutContainer">
+        <div class={`mainAboutContainer ${this.windowSize.width <= 767 ? 'responsiveMobile' : ''}`}>
 
           <div class="leftDescription">
 
