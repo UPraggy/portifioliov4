@@ -47,3 +47,26 @@
   background: url('../../static/imgs/copyIcon.png') no-repeat center/contain;
   margin-right: 10px;
 }
+
+
+
+
+
+
+
+
+
+/* RESPONSIBLE MOBILE */
+
+.mainFooterContainer.responsiveMobile{
+
+}
+
+
+.mainFooterContainer.responsiveMobile .titleFooter {
+  font-size: 1em;
+}
+
+.mainFooterContainer.responsiveMobile .textRights {
+  font-size: 0.8em;
+}

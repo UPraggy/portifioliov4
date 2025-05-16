@@ -19,6 +19,7 @@ export namespace Components {
         "responsible": boolean;
     }
     interface MyFooterComponent {
+        "responsible": boolean;
     }
     interface MyHomepage {
     }
@@ -111,6 +112,7 @@ declare namespace LocalJSX {
         "responsible"?: boolean;
     }
     interface MyFooterComponent {
+        "responsible"?: boolean;
     }
     interface MyHomepage {
     }
