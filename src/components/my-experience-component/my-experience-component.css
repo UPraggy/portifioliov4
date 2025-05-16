@@ -9,14 +9,15 @@
   width: 95%;
   margin: 5vh auto 20px auto;
   padding: 4.5% 2.5%;
-  background-color: var(--whiteBone-home-color);
+  background-color: transparent;
   align-items: flex-start;
   justify-content: flex-start;
+  color: var(--whiteBone-home-color);
 }
 
 .mainExperienceContainer  .leftDescription{
-  color: var(--blueDark3-home-color);
-  font-family: "Playfair Display", serif;
+  
+  font-family: 'Futura Hv BT', sans-serif;
 }
 
 .mainExperienceContainer  .leftDescription .title{
@@ -27,7 +28,7 @@
 .mainExperienceContainer  .leftDescription .subTitle{
   font-weight: 400;
   font-size: 1em;
-  color: #555555;
+  color: #acacac;
 }
 
 
@@ -36,7 +37,7 @@
   display: grid;
   grid-template-columns: 40% 40% 20%;
   padding: 0 2.5%;
-  font-family: 'Nippo Variable', sans-serif;
+  font-family: 'Futura Md BT', sans-serif;
   font-weight: 300;
   font-size: 1em;
 }
@@ -47,4 +48,53 @@
 
 .mainExperienceContainer .experienceTable > div{
   margin-bottom: 8px;
+}
+
+
+
+
+
+
+/* RESPONSIBLE MOBILE */
+
+
+
+.mainExperienceContainer.responsiveMobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainExperienceContainer.responsiveMobile .leftDescription {
+    text-align: center;
+}
+
+
+
+.mainExperienceContainer.responsiveMobile .experienceTable {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 15px 0 0 0;
+}
+
+
+.mainExperienceContainer.responsiveMobile .experienceLine {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainExperienceContainer.responsiveMobile .experienceLine::after {
+  content: '';
+  width: 95%;
+  height: 2px;
+  background-color: var(--whiteBone-home-color);
+  margin: 6px 0 6px 0;
+}
+
+.mainExperienceContainer.responsiveMobile .experienceTable>div {
+    font-weight: 400;
 }
