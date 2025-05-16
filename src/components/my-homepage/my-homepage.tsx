@@ -188,7 +188,7 @@ export class MyHomePage{
 
           
 
-          <my-footer-component class="footerComponent"/>
+          <my-footer-component class="footerComponent" responsible={this.windowSize.width <= 767}/>
 
         </div>
       </div>
