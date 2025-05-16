@@ -20,6 +20,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Futura Md BT';
+  src: url('../static/fonts/Futura-Md-BT.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
 
 @font-face {
   font-family: 'Nippo Variable';
