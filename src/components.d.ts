@@ -20,25 +20,10 @@ export namespace Components {
     }
     interface MyFooterComponent {
     }
-    interface MyExperienceComponent {
-    }
-    interface MyFooterComponent {
-    }
     interface MyHomepage {
     }
     interface MyProjectsComponent {
         "responsible": boolean;
-    }
-    interface MyProjectscardComponent {
-        "projectObj": {
-        title: string,
-        date: string,
-        description: HTMLElement,
-        sinopse: string,
-        imagesSlider: string[],
-        tecnologias: string,
-        funccionality: string
-    };
     }
     interface MyProjectscardComponent {
         "projectObj": {
@@ -127,25 +112,10 @@ declare namespace LocalJSX {
     }
     interface MyFooterComponent {
     }
-    interface MyExperienceComponent {
-    }
-    interface MyFooterComponent {
-    }
     interface MyHomepage {
     }
     interface MyProjectsComponent {
         "responsible"?: boolean;
-    }
-    interface MyProjectscardComponent {
-        "projectObj"?: {
-        title: string,
-        date: string,
-        description: HTMLElement,
-        sinopse: string,
-        imagesSlider: string[],
-        tecnologias: string,
-        funccionality: string
-    };
     }
     interface MyProjectscardComponent {
         "projectObj"?: {
