@@ -1,5 +1,5 @@
 import { Component, Host, Prop, State, Watch, h } from '@stencil/core';
-import { animate, onScroll, stagger } from 'animejs';
+import { animate} from 'animejs';
 
 @Component({
   tag: 'my-projectscard-component',
@@ -12,7 +12,7 @@ export class MyProjectsCardComponent {
     @Prop() projectObj: {
         title: string,
         date: string,
-        description: HTMLElement,
+        description: string,
         sinopse: string,
         imagesSlider: string[],
         tecnologias: string,
@@ -88,7 +88,7 @@ private waitForRefAndAnimate(attempt = 0) {
                 {this.showCard ? 
                     <div class="info" ref={el => this.infoRef = el as HTMLDivElement}>
                         <div class="leftCard" ref={el => this.leftCardRef = el as HTMLDivElement}>
-                            <div class="textInfoCard">{this.projectObj.description}</div>
+                            <div class="textInfoCard" innerHTML={this.projectObj.description}></div>
                             <div class="tecnologiesCard">{this.projectObj.tecnologias}</div>
                             <div class="viewInfoCard" onClick={()=>window.location.href = this.projectObj.funccionality}>Veja o Funcionamento</div>
                         </div>
