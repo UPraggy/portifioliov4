@@ -30,7 +30,7 @@ export namespace Components {
         "projectObj": {
         title: string,
         date: string,
-        description: HTMLElement,
+        description: string,
         sinopse: string,
         imagesSlider: string[],
         tecnologias: string,
@@ -123,7 +123,7 @@ declare namespace LocalJSX {
         "projectObj"?: {
         title: string,
         date: string,
-        description: HTMLElement,
+        description: string,
         sinopse: string,
         imagesSlider: string[],
         tecnologias: string,
