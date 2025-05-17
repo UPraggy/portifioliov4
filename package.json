@@ -36,7 +36,9 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "postinstall": "patch-package"
+
   },
   "devDependencies": {
     "@stencil/core": "^4.27.1",
@@ -44,6 +46,8 @@
     "@types/node": "^22.13.5",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
+    "patch-package": "^8.0.0",
+    "postinstall-postinstall": "^2.1.0",
     "puppeteer": "^24.3.0"
   },
   "license": "MIT",
