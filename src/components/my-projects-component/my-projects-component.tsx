@@ -19,6 +19,10 @@ export class MyProjectsComponent {
           };
 
   private projectsListObj = (new projectStaticObject).projectsListObj
+
+
+
+  
   
   @Listen('resize', {target: 'window'})
             getWindowDimensions(){

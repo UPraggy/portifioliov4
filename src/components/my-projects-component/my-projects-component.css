@@ -68,6 +68,7 @@
   width: 80%;
   padding: 20px 0;
   user-select: none;
+  transition: all 1s;
 }
 
 .projectsContainer .cardProject .topCard .info1{
@@ -75,6 +76,7 @@
   align-items: flex-end;
   justify-content: flex-start;
   width: 100%;
+  transition: all 1s;
 }
 
 
@@ -104,6 +106,7 @@
   background-color: var(--whiteBone-home-color);
   margin: 0 auto;
   cursor: pointer;
+  transition: all 1s;
 }
 
 .projectsContainer .projectWrapper .openCard::before{
@@ -150,7 +153,21 @@
   grid-gap: 5%;
   margin: 15px 0 20px 0;
   width: 78%;
+  position: relative;
 }
+
+.projectsContainer .projectWrapper .info .leftCard{
+  position: relative;
+  transform: translateX(-150%);
+}
+
+.projectsContainer .projectWrapper .info .rightCard{
+  position: relative;
+  transform: translateX(150%);
+}
+
+
+
 
 
 .projectsContainer .projectWrapper .info .description{
