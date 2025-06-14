@@ -160,7 +160,7 @@ export class MyHomePage{
                 <div class="left">
                   <div class="textProfission">Full Stack Developer & Designer</div>
 
-                  <div class="curriculumBtn" onClick={()=>window.location.href="/static/docs/RafaelMoreira_Curriculo_25042025.pdf"}
+                  <div class="curriculumBtn" onClick={()=>window.location.href="/portifoliov4/static/docs/RafaelMoreira_Curriculo_25042025.pdf"}
                     onMouseEnter={()=>this.hoverCurriculumBtn('Enter')}>
                     <div class="text">MY CURRICULUM</div>
                     <div class="arrow">

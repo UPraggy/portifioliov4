@@ -60,7 +60,7 @@
   max-height: 65vh;
   aspect-ratio: 0.666 / 1;
   /* background-color: #f00f0055; */
-  background: url('../../static/imgs/perfilPhotoAbout.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/perfilPhotoAbout.png') no-repeat center/contain;
   border-radius: 5px;
   transform: translateX(50%);
   z-index: 14;

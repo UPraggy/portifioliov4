@@ -11,8 +11,10 @@ export const config: Config = {
       type: 'www',
       serviceWorker: null, // se não quiser usar PWA
       copy: [
-        { src: 'static' } // garante que a pasta será copiada
-      ]
+        { src: 'static' }, // garante que a pasta será copiada,
+        { src: 'global/fonts.css'}
+      ],
+      baseUrl: '',//'/portifoliov4/',
     },
     {
       type: 'dist-custom-elements',

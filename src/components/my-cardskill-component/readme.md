@@ -7,12 +7,23 @@
 
 ## Properties
 
-| Property | Attribute | Description     | Type     | Default     |
-| -------- | --------- | --------------- | -------- | ----------- |
-| `first`  | `first`   | The first name  | `string` | `undefined` |
-| `last`   | `last`    | The last name   | `string` | `undefined` |
-| `middle` | `middle`  | The middle name | `string` | `undefined` |
+| Property      | Attribute     | Description | Type      | Default     |
+| ------------- | ------------- | ----------- | --------- | ----------- |
+| `responsible` | `responsible` |             | `boolean` | `undefined` |
 
+
+## Dependencies
+
+### Used by
+
+ - [my-homepage](../my-homepage)
+
+### Graph
+```mermaid
+graph TD;
+  my-homepage --> my-cardskill-component
+  style my-cardskill-component fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

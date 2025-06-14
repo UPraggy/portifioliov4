@@ -44,7 +44,7 @@
 .mainFooterContainer .bottomFooter  .copyIcon{
   width: 40px;
   aspect-ratio: 1/1;
-  background: url('../../static/imgs/copyIcon.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/copyIcon.png') no-repeat center/contain;
   margin-right: 10px;
 }
 

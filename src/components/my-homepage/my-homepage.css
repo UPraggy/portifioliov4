@@ -136,7 +136,7 @@
 :host .leftPath .socials .emailCircle div{
   width: 30px;
   aspect-ratio: 1/1;
-  background: url('../../static/imgs/emailIcon.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/emailIcon.png') no-repeat center/contain;
 }
 
 
@@ -161,13 +161,13 @@
 :host .leftPath .socials .linkedInIcon div{
   width: 25px;
   aspect-ratio: 1/1;
-  background: url('../../static/imgs/linkedInIcon.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/linkedInIcon.png') no-repeat center/contain;
 }
 
 :host .leftPath .socials .gitIcon div{
   width: 25px;
   aspect-ratio: 1/1;
-  background: url('../../static/imgs/githubIcon.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/githubIcon.png') no-repeat center/contain;
 }
 
 
@@ -314,7 +314,7 @@
   position: relative;
   height: 105%;
   aspect-ratio: 1 / 0.866;
-  background: url('../../static/imgs/perfilPhoto.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/perfilPhoto.png') no-repeat center/contain;
   z-index: 2;
 }
 
