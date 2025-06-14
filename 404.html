@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecionamento com JavaScript</title>
+</head>
+<body>
+  <script>
+  function redirecionarParaComponente() {
+    const caminho = window.location.pathname.substr(1); // Remove a primeira '/'
+    const paginas = caminho.split('/').filter(val => val !== '');
+
+    // Se houver qualquer segmento (ex: /NossoAmor), redirecionar para "/?subPaginas=NossoAmor"
+    if (paginas.length > 0) {
+      const destino = '/?subPaginas=' + paginas.join(',');
+      console.log('Redirecionando para:', destino);
+      window.location.replace(destino); // usa replace para evitar histórico duplicado
+    }
+  }
+
+  redirecionarParaComponente();
+  </script>
+</body>
+</html>
