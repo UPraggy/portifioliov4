@@ -86,7 +86,7 @@ body{
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url('../../static/imgs/shapeSkill.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/shapeSkill.png') no-repeat center/contain;
   margin-bottom: 20px;
 }
 
@@ -112,42 +112,42 @@ body{
 }
 
 .mainCardSkillContainer .gridSkills .cardSkill.React .imageCenter{
-  background: url('../../static/imgs/reactIcon.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/reactIcon.png') no-repeat center/contain;
 }
 
 .mainCardSkillContainer .gridSkills .cardSkill.GitGitHub .imageCenter{
-  background: url('../../static/imgs/gitIcon.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/gitIcon.png') no-repeat center/contain;
 }
 
 .mainCardSkillContainer .gridSkills .cardSkill.PostgresSql .imageCenter{
-  background: url('../../static/imgs/postgresIcon.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/postgresIcon.png') no-repeat center/contain;
 }
 
 .mainCardSkillContainer .gridSkills .cardSkill.NodeJs .imageCenter{
-  background: url('../../static/imgs/nodeIcon.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/nodeIcon.png') no-repeat center/contain;
 }
 
 .mainCardSkillContainer .gridSkills .cardSkill.Stencil .imageCenter{
-  background: url('../../static/imgs/stencilIcon.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/stencilIcon.png') no-repeat center/contain;
 }
 
 .mainCardSkillContainer .gridSkills .cardSkill.Linux .imageCenter{
-  background: url('../../static/imgs/linuxIcon.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/linuxIcon.png') no-repeat center/contain;
 }
 
 .mainCardSkillContainer .gridSkills .cardSkill.Figma .imageCenter{
-  background: url('../../static/imgs/figmaIcon.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/figmaIcon.png') no-repeat center/contain;
 }
 
 .mainCardSkillContainer .gridSkills .cardSkill.Java .imageCenter{
-  background: url('../../static/imgs/javaIcon.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/javaIcon.png') no-repeat center/contain;
 }
 
 .mainCardSkillContainer .gridSkills .cardSkill.Oracle .imageCenter{
-  background: url('../../static/imgs/oracleIcon.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/oracleIcon.png') no-repeat center/contain;
 }
 
 .mainCardSkillContainer .gridSkills .cardSkill.Python .imageCenter{
-  background: url('../../static/imgs/pythonIcon.png') no-repeat center/contain;
+  background: url('/portifoliov4/static/imgs/pythonIcon.png') no-repeat center/contain;
 }
 

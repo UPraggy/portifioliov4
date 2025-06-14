@@ -38,12 +38,12 @@
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "postinstall": "patch-package"
-
   },
   "devDependencies": {
     "@stencil/core": "^4.27.1",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.5",
+    "gh-pages": "^6.3.0",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
     "patch-package": "^8.0.0",
@@ -52,6 +52,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "animejs": "^4.0.2"
+    "animejs": "^4.0.2",
+    "stencil-router-v2": "^0.6.0"
   }
 }

@@ -11,9 +11,9 @@ export function projectStaticObject(){
             </div>`,
             sinopse: 'Um sistema inteligente que usa LLM (Language Model) para interpretar a estrutura real do seu banco de dados  incluindo tabelas e relacionamentos e retornar esses dados.',
             imagesSlider: [
-              "url('../static/imgs/project/queryBoard1.png')", 
-              "url('../static/imgs/project/queryBoard2.png')",
-              "url('../static/imgs/project/queryBoard3.png')"
+              "url('/portifoliov4/static/imgs/project/queryBoard1.png')", 
+              "url('/portifoliov4/static/imgs/project/queryBoard2.png')",
+              "url('/portifoliov4/static/imgs/project/queryBoard3.png')"
             ],
             tecnologias: 'NodeJs - LLM - Ollama - IA - WebSocket',
             funccionality: 'https://www.linkedin.com/posts/rafael-moreira-ramos-de-rezende-16420b21b_apresentando-o-queryboard-sua-pergunta-activity-7320077577799327745-EQE9?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdh0xwBdIu6TW2euY9gRDD7CyR_85V0-hE'
@@ -29,9 +29,9 @@ export function projectStaticObject(){
             </div>`,
             sinopse: 'Uma assistente virtual com foco em ser o melhor guia turístico de BH, para moradores ou turistas',
             imagesSlider: [
-              "url('../static/imgs/project/bhTour1.png')", 
-              "url('../static/imgs/project/bhTour2.png')",
-              "url('../static/imgs/project/bhTour3.png')"
+              "url('/portifoliov4/static/imgs/project/bhTour1.png')", 
+              "url('/portifoliov4/static/imgs/project/bhTour2.png')",
+              "url('/portifoliov4/static/imgs/project/bhTour3.png')"
             ],
             tecnologias: 'React - NodeJs - NLP - IA - WebSocket - Figma',
             funccionality: 'https://www.linkedin.com/posts/rafael-moreira-ramos-de-rezende-16420b21b_frontend-ux-chatbot-activity-7313322726457274368-K6XC?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdh0xwBdIu6TW2euY9gRDD7CyR_85V0-hE'
@@ -47,7 +47,7 @@ export function projectStaticObject(){
                 levantamento de requisitos e apresentação em mockup 3D.
             </div>`,
             imagesSlider: [
-              "url('../static/imgs/project/siteIgrejaSaoPedro.png')"
+              "url('/portifoliov4/static/imgs/project/siteIgrejaSaoPedro.png')"
             ],
             sinopse: 'Um app voluntário e FreeLancer com acesso a Bíblia, Liturgia diária e informações sobre a comunidade através de uma API',
             tecnologias: 'React - NodeJs - RestAPI - Figma - FireBase - NoSql - MongoDb',
