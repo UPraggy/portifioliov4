@@ -1,25 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecionamento com JavaScript</title>
-</head>
-<body>
-  <script>
-  function redirecionarParaComponente() {
-    const caminho = window.location.pathname.substr(1); // Remove a primeira '/'
-    const paginas = caminho.split('/').filter(val => val !== '');
+<script>
+function redirecionarParaComponente() {
+  const path = window.location.pathname;
 
-    // Se houver qualquer segmento (ex: /NossoAmor), redirecionar para "/?subPaginas=NossoAmor"
-    if (paginas.length > 0) {
-      const destino = '/?subPaginas=' + paginas.join(',');
-      console.log('Redirecionando para:', destino);
-      window.location.replace(destino); // usa replace para evitar histórico duplicado
-    }
+  // 🚫 IGNORA assets
+  if (
+    path.includes('/static/') ||
+    path.includes('.mp3') ||
+    path.includes('.jpg') ||
+    path.includes('.png') ||
+    path.includes('.css') ||
+    path.includes('.js')
+  ) {
+    return;
   }
 
-  redirecionarParaComponente();
-  </script>
-</body>
-</html>
+  const caminho = path.replace('/portifoliov4', '').substr(1);
+  const paginas = caminho.split('/').filter(val => val !== '');
+
+  if (paginas.length > 0) {
+    const destino = '/portifoliov4/?subPaginas=' + paginas.join(',');
+    console.log('Redirecionando para:', destino);
+    window.location.replace(destino);
+  }
+}
+
+redirecionarParaComponente();
+</script>

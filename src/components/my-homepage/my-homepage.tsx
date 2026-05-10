@@ -142,7 +142,7 @@ export class MyHomePage{
               <div class="socials">
                   <div class="emailCircle" onClick={()=>window.location.href="mailto:rafaelmoreira2001ofc@gmail.com"}><div></div></div>
                   <div class="social2Group">
-                      <div class="linkedInIcon" onClick={()=>window.location.href="https://www.linkedin.com/in/rafael-moreira-ramos-de-rezende-16420b21b/"}><div></div></div>
+                      <div class="linkedInIcon" onClick={()=>window.location.href="https://www.linkedin.com/in/rafaelmrdev"}><div></div></div>
                       <div class="gitIcon" onClick={()=>window.location.href="https://github.com/UPraggy"}><div></div></div>
                   </div>
               </div>
@@ -160,7 +160,7 @@ export class MyHomePage{
                 <div class="left">
                   <div class="textProfission">Full Stack Developer & Designer</div>
 
-                  <div class="curriculumBtn" onClick={()=>window.location.href="/portifoliov4/static/docs/RafaelMoreira_Curriculo_25042025.pdf"}
+                  <div class="curriculumBtn" onClick={()=>window.location.href="/portifoliov4/static/docs/RafaelMoreira_Curriculo.pdf"}
                     onMouseEnter={()=>this.hoverCurriculumBtn('Enter')}>
                     <div class="text">MY CURRICULUM</div>
                     <div class="arrow">

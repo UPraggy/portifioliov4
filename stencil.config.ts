@@ -14,7 +14,7 @@ export const config: Config = {
         { src: 'static' }, // garante que a pasta será copiada,
         { src: 'global/fonts.css'}
       ],
-      baseUrl: '',//'/portifoliov4/',
+      baseUrl: '/portifoliov4/',
     },
     {
       type: 'dist-custom-elements',

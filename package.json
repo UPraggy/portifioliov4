@@ -37,7 +37,8 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "deploy": "gh-pages -d www"
   },
   "devDependencies": {
     "@stencil/core": "^4.27.1",

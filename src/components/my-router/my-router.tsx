@@ -16,6 +16,9 @@ export class MyRouter {
       
       this.setRouteFromUrl();
     });
+
+    
+  
   }
 
   setRouteFromUrl() {
@@ -28,7 +31,17 @@ export class MyRouter {
   }
 
   render() {
-    switch (this.route) {
+    const searchParams = new URLSearchParams(window.location.search);
+    const subPaginas = searchParams.get('subPaginas');
+    let caminhoNormal = ''
+    if (subPaginas) {
+      const caminho = subPaginas.split(',').join('/');
+      caminhoNormal = `/${caminho}`;
+    } else {
+      caminhoNormal = `/HomePage`;
+    }
+
+    switch (caminhoNormal) {
       case '/':
       case '/HomePage':
         return <my-homepage />;
