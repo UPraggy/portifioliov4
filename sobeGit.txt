@@ -1,0 +1,11 @@
+npm run build
+cd .\www\
+git init
+git remote add origin https://github.com/UPraggy/portifioliov4.git
+git add .
+git commit -m "teste"
+git branch gh-pages
+git push origin gh-pages --force
+cd ..
+clear
+echo "Subiu"

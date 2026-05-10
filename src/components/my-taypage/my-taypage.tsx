@@ -1,20 +1,15 @@
 import { Component, Element, Host, State, h } from '@stencil/core';
 import { taypageStaticObject } from './my-taypage-objects';
 
-
 @Component({
   tag: 'my-taypage',
   styleUrls: ['./my-taypage.css', '../../global/colors.css', '../../global/fonts.css'],
   shadow: true,
 })
-
-
-
 export class MyTaypage {
 
   @State() tempoDecorrido = this.calcularTempoRestante("2024-10-18T22:00:00")
   @State() tempoDecorridoNamoro = this.calcularTempoRestante("2024-12-08T22:00:00")
-
 
   @State() slideController: number = 0;
   @State() changeText: number = 0;
@@ -22,78 +17,124 @@ export class MyTaypage {
   @State() changeAnimation2: string = '';
 
   @State() windowSize: { width: number; height: number } = {
-          width: window.innerWidth,
-          height: window.innerHeight,
-        };
+    width: window.innerWidth,
+    height: window.innerHeight,
+  };
+
+  // sequência inicial
+  @State() initialSequenceIndex: number = 1;
+  @State() finishedInitialSequence: boolean = false;
 
   private intervalo1: any;
   private intervalo2: any;
-  private intervaloSlider: any;
-  private imagesCountMax: number = 5; // exemplo fixo
-  private imagesArr: any = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', 
-          '9.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', 
-          '17.jpg', '18.jpg', '19.jpg', '20.jpg','21.jpg','22.jpg','23.jpg','24.jpg','25.jpg','26.jpg',
-        '27.jpg','28.jpg','29.jpg','30.jpg','31.jpg','32.jpg','33.jpg','34.jpg','35.jpg','36.jpg','37.jpg'
-      ,'38.jpg'];
+  private sliderTimeout: any;
+  private intervaloTexto: any;
 
+  private imagesCountMax: number = 50;
+  private imagesArr: any = Array.from({ length: 50 }, (_, i) => `${i + 1}.jpg`);
 
   @Element() el: HTMLElement;
   audioRef: HTMLAudioElement;
-  playButtonRef: HTMLButtonElement;
 
   private taypageListObj = (new taypageStaticObject).taypageListObj
   @State() changeTextList: number = 0;
 
   handleNextRandomText = () => {
-  const maxIndex = this.taypageListObj.length;
-  const randomIndex = Math.floor(Math.random() * maxIndex);
-
-  this.changeTextList = randomIndex;
+    const maxIndex = this.taypageListObj.length;
+    const randomIndex = Math.floor(Math.random() * maxIndex);
+    this.changeTextList = randomIndex;
   }
 
   calcularTempoRestante(dataInicial) {
-      const agora:Date = new Date();
-      const alvo:Date = new Date(dataInicial);
-      
-      // Se a data inicial for no futuro, retorna tudo zero
-      if (agora < alvo) {
-        return { anos: 0, meses: 0, dias: 0, horas: 0, minutos: 0, segundos: 0 };
-      }
-    
-      // Calculando a diferença em anos
-      let anos = agora.getFullYear() - alvo.getFullYear();
-      let meses = agora.getMonth() - alvo.getMonth();
-      let dias = agora.getDate() - alvo.getDate();
-    
-      // Ajustar se o mês ainda não foi atingido no ano atual
+    const agora: Date = new Date();
+    const alvo: Date = new Date(dataInicial);
+
+    if (agora < alvo) {
+      return { anos: 0, meses: 0, dias: 0, horas: 0, minutos: 0, segundos: 0 };
+    }
+
+    let anos = agora.getFullYear() - alvo.getFullYear();
+    let meses = agora.getMonth() - alvo.getMonth();
+    let dias = agora.getDate() - alvo.getDate();
+
+    if (meses < 0) {
+      anos -= 1;
+      meses += 12;
+    }
+
+    if (dias < 0) {
+      const ultimoDiaMesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+      dias += ultimoDiaMesAnterior;
+      meses -= 1;
+
       if (meses < 0) {
         anos -= 1;
         meses += 12;
       }
-    
-      // Ajustar se o dia ainda não foi atingido no mês atual
-      if (dias < 0) {
-        const ultimoDiaMesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate(); // Último dia do mês anterior
-        dias += ultimoDiaMesAnterior;
-        meses -= 1;
-    
-        if (meses < 0) {
-          anos -= 1;
-          meses += 12;
-        }
-      }
-    
-      // Calculando horas, minutos e segundos
-      const diferenca = agora.getTime() - alvo.getTime();
-      const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
-      const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
-      const segundos = Math.floor((diferenca / 1000) % 60);
-    
-      return { anos, meses, dias, horas, minutos, segundos };
     }
 
-    
+    const diferenca = agora.getTime() - alvo.getTime();
+    const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferenca / 1000) % 60);
+
+    return { anos, meses, dias, horas, minutos, segundos };
+  }
+
+  // 🔥 SLIDER CONTROLADO COM TIMEOUT
+  startSlider = () => {
+    this.sliderTimeout = setTimeout(() => {
+
+      if (this.changeText === 1) {
+
+        // sequência inicial (2 → 6)
+        if (!this.finishedInitialSequence) {
+          this.slideController = this.initialSequenceIndex;
+          this.initialSequenceIndex++;
+
+          if (this.initialSequenceIndex > 5) {
+            this.finishedInitialSequence = true;
+          }
+
+        } else {
+          // aleatório
+          let randomIndex;
+          do {
+            randomIndex = Math.floor(Math.random() * this.imagesCountMax);
+          } while (randomIndex === this.slideController);
+
+          this.slideController = randomIndex;
+        }
+      }
+
+      // chama de novo (loop controlado)
+      this.startSlider();
+
+    }, 3000);
+  };
+
+  // 👆 clique manual
+  handleNextImage = () => {
+
+    // sai da sequência inicial
+    if (!this.finishedInitialSequence) {
+      this.finishedInitialSequence = true;
+    }
+
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * this.imagesCountMax);
+    } while (randomIndex === this.slideController);
+
+    this.slideController = randomIndex;
+
+    // 🔁 RESET DO TEMPO
+    clearTimeout(this.sliderTimeout);
+    this.startSlider();
+  };
+
   componentWillLoad() {
+
     this.intervalo1 = setInterval(() => {
       this.tempoDecorrido = this.calcularTempoRestante("2024-10-18T22:00:00");
     }, 1000);
@@ -102,12 +143,13 @@ export class MyTaypage {
       this.tempoDecorridoNamoro = this.calcularTempoRestante("2024-12-08T22:00:00");
     }, 1000);
 
-    this.intervaloSlider = setInterval(() => {
+    this.startSlider();
+
+    this.intervaloTexto = setInterval(() => {
       if (this.changeText === 1) {
-        this.slideController = (this.slideController + 1) % this.imagesCountMax;
-        this.handleNextRandomText()
+        this.handleNextRandomText();
       }
-    }, 3000);
+    }, 5000);
   }
 
   componentDidUpdate() {
@@ -120,7 +162,8 @@ export class MyTaypage {
   disconnectedCallback() {
     clearInterval(this.intervalo1);
     clearInterval(this.intervalo2);
-    clearInterval(this.intervaloSlider);
+    clearTimeout(this.sliderTimeout);
+    clearInterval(this.intervaloTexto);
   }
 
   handlePlay = () => {
@@ -128,30 +171,33 @@ export class MyTaypage {
   };
 
   setChangeText = (val: number) => {
-    console.log(val)
     this.changeText = val;
     this.handlePlay();
   };
 
 
+  
   render() {
     return (
       <Host>
         <slot>
         
          <div class={`containerPrincipalTay TayPageTempo ${this.changeText === 0 ? 'introBtn' : ''}`}>
-        <audio
+         <audio
           ref={el => (this.audioRef = el)}
           controls
+          preload="auto"
           style={{ opacity: '0', height: '0' }}
         >
-          <source src="../static/audio/SouTodoLoveLove.mp3" type="audio/mp3" />
+          <source src="/portifoliov4/static/audio/SouTodoLoveLove.mp3" type="audio/mp3" />
           Seu navegador não suporta a tag de áudio.
         </audio>
 
         { this.changeText === 0   ?  <intro-button
             onSetchangetext={() => {
-              this.setChangeText(1)}}
+              this.audioRef?.play();
+              this.setChangeText(1)
+            }}
           /> : 
         <div>
         
@@ -190,15 +236,8 @@ export class MyTaypage {
             <div class={`title ${this.changeAnimation}`}>Que o nosso amor seja eterno e nossas memórias não se percam com o tempo e jamais se limite a apenas palavras</div>
 
             <div class={`leftContainer ${this.changeAnimation2}`}>
-                    <div class="imageSlider" style={{'--imageTay': `url('../static/imgs/taynaraContador/${this.imagesArr[this.slideController]}')`}}
-                    onClick={()=>{
-                      const sliderVal = this.slideController+1
-                      if(sliderVal >= this.imagesCountMax){
-                          this.slideController = 0;
-                      }else{
-                          this.slideController = sliderVal;
-                      }
-                      }}></div>
+                    <div class="imageSlider" style={{'--imageTay': `url('/portifoliov4/static/imgs/taynaraContador/${this.imagesArr[this.slideController]}?v=${10}')`}}
+                    onClick={() => this.handleNextImage()}></div>
 
                 </div>
 
